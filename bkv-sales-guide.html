@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B&K Vibro — Sales Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   EDITABLE CONTENT: Edit the CONFIG object in the <script>
+   section at the bottom of this file. All product info,
+   questions, and competitor data lives there.
+   ============================================================ */
+
+:root {
+  --navy:         #0F2044;
+  --navy-mid:     #1E3A6E;
+  --navy-light:   #EEF3FA;
+  --navy-faint:   #F4F7FC;
+  --red:          #C8102E;
+  --red-dark:     #A00D24;
+  --red-light:    #FDF0F2;
+  --brand:        #1E3A6E;
+  --brand-dark:   #0F2044;
+  --brand-light:  #EEF3FA;
+  --ink:          #0F2044;
+  --ink-mid:      #4A5568;
+  --ink-light:    #8898AA;
+  --ink-faint:    #C5D0DE;
+  --surface:      #FFFFFF;
+  --surface-2:    #F5F7FA;
+  --surface-3:    #EDF1F7;
+  --border:       rgba(30,58,110,0.10);
+  --border-mid:   rgba(30,58,110,0.18);
+  --radius-sm:    6px;
+  --radius-md:    10px;
+  --radius-lg:    14px;
+  --shadow-sm:    0 1px 4px rgba(15,32,68,0.08);
+  --shadow-md:    0 4px 18px rgba(15,32,68,0.12);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--surface-2);
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- LAYOUT ---- */
+.shell {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+}
+
+/* ---- HEADER ---- */
+.site-header {
+  background: var(--navy);
+  color: white;
+  padding: 0 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(15,32,68,0.35);
+}
+.header-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  gap: 1rem;
+}
+.logo-block {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+.logo-mark {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.logo-mark svg { width: 34px; height: 34px; }
+.logo-text {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  color: var(--red);
+}
+.logo-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,0.45);
+  font-weight: 400;
+  margin-top: 1px;
+  letter-spacing: .01em;
+}
+.nav-tabs {
+  display: flex;
+  gap: 2px;
+}
+.nav-tab {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.55);
+  padding: .4rem .75rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: color .15s, background .15s;
+  white-space: nowrap;
+}
+.nav-tab:hover { color: white; background: rgba(255,255,255,0.10); }
+.nav-tab.active { color: white; background: var(--navy-mid); }
+
+/* ---- SCREENS ---- */
+.screen { display: none; padding-top: 2rem; }
+.screen.active { display: block; }
+
+/* ---- HOME ---- */
+.home-hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  color: white;
+  border-radius: var(--radius-lg);
+  padding: 2rem 2rem 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.home-hero::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 200px; height: 200px;
+  background: white;
+  border-radius: 50%;
+  opacity: .04;
+}
+.home-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; right: 30px;
+  width: 160px; height: 160px;
+  border: 2px solid rgba(255,255,255,.08);
+  border-radius: 50%;
+}
+.home-hero h1 {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -.02em;
+  margin-bottom: .5rem;
+  position: relative;
+}
+.home-hero p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+  max-width: 480px;
+  position: relative;
+}
+.home-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.home-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: border-color .15s, box-shadow .15s, transform .1s;
+  box-shadow: var(--shadow-sm);
+}
+.home-card:hover {
+  border-color: var(--navy-mid);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+.home-card-icon {
+  width: 40px; height: 40px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  margin-bottom: 1rem;
+}
+.home-card h3 { font-size: 15px; font-weight: 600; margin-bottom: .35rem; }
+.home-card p { font-size: 13px; color: var(--ink-mid); line-height: 1.55; }
+.home-tip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--red);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.6;
+}
+.home-tip strong { color: var(--ink); font-weight: 500; }
+
+/* ---- LEARN ---- */
+.section-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 1rem;
+}
+.product-tabs {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.ptab {
+  font-size: 13px;
+  font-weight: 500;
+  padding: .45rem 1rem;
+  border-radius: 99px;
+  border: 1px solid var(--border-mid);
+  background: var(--surface);
+  color: var(--ink-mid);
+  cursor: pointer;
+  transition: all .15s;
+}
+.ptab:hover { border-color: var(--navy-mid); color: var(--navy-mid); }
+.ptab.active { background: var(--navy); border-color: var(--navy); color: white; }
+
+.product-panel { display: none; }
+.product-panel.active { display: block; }
+
+.prod-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.prod-card-header {
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.prod-name { font-size: 22px; font-weight: 600; letter-spacing: -.02em; }
+.prod-tagline { font-size: 13px; color: var(--ink-mid); margin-top: .2rem; }
+.prod-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 99px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 3px;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+.prod-summary {
+  padding: 1.25rem 1.75rem;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink-mid);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.prod-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--border);
+}
+.prod-col {
+  padding: 1.25rem 1.75rem;
+}
+.prod-col:first-child { border-right: 1px solid var(--border); }
+.prod-col-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--ink-light);
+  margin-bottom: .75rem;
+}
+.prod-item {
+  display: flex;
+  gap: .6rem;
+  font-size: 13px;
+  color: var(--ink);
+  padding: 4px 0;
+  line-height: 1.45;
+  align-items: flex-start;
+}
+.chk { color: #1A7A4A; flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+.xmk { color: #C03030; flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+
+.elevator {
+  padding: 1.25rem 1.75rem;
+}
+.elevator-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--red);
+  margin-bottom: .6rem;
+}
+.elevator-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink);
+  font-style: italic;
+  padding: 1rem 1.25rem;
+  background: var(--navy-faint);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--navy-mid);
+}
+
+/* ---- COMPETE ---- */
+.compete-intro {
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.compete-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.25rem;
+}
+.compete-header {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.compete-name { font-size: 17px; font-weight: 600; letter-spacing: -.01em; }
+.compete-owner { font-size: 12px; color: var(--ink-light); margin-top: 2px; }
+.compete-threat {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 99px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  flex-shrink: 0;
+}
+.threat-high { background: #FEE2E2; color: #991B1B; }
+.threat-mid  { background: #FEF3C7; color: #92400E; }
+.compete-body { padding: 1.25rem 1.5rem; }
+.compete-section { margin-bottom: 1rem; }
+.compete-section:last-child { margin-bottom: 0; }
+.compete-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--ink-light);
+  margin-bottom: .5rem;
+}
+.compete-text { font-size: 13px; color: var(--ink-mid); line-height: 1.6; }
+.compete-win {
+  margin-top: 1rem;
+  padding: .875rem 1rem;
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  color: #166534;
+  line-height: 1.6;
+}
+.compete-win strong { font-weight: 600; display: block; margin-bottom: .2rem; }
+.compete-note {
+  background: var(--navy-faint);
+  border: 1px solid rgba(30,58,110,0.18);
+  border-radius: var(--radius-md);
+  padding: .75rem 1rem;
+  font-size: 12.5px;
+  color: var(--navy);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.compete-note-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--navy-mid);
+  display: block;
+  margin-bottom: .3rem;
+}
+.compete-pcgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.compete-pc-col { }
+.compete-pc-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: .6rem;
+  padding: .3rem .6rem;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+}
+.compete-pc-title.their { background: #FEF3C7; color: #92400E; }
+.compete-pc-title.their-con { background: #FEE2E2; color: #991B1B; }
+.compete-pc-item {
+  display: flex;
+  gap: .5rem;
+  font-size: 12.5px;
+  color: var(--ink);
+  padding: 3px 0;
+  line-height: 1.45;
+  align-items: flex-start;
+}
+.compete-pc-item.our { color: #166534; }
+
+/* ---- COMPARE ---- */
+.compare-intro {
+  font-size: 13px;
+  color: var(--ink-mid);
+  margin-bottom: 1rem;
+  padding: .75rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.compare-wrap { width: 100%; }
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  table-layout: fixed;
+}
+.compare-table th {
+  padding: .6rem .4rem;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 2px solid var(--border);
+  white-space: normal;
+  position: sticky;
+  top: 56px;
+  z-index: 10;
+}
+.compare-table th.col-label {
+  text-align: left;
+  color: var(--ink-light);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  width: 28%;
+  background: var(--surface-3);
+  position: sticky;
+  top: 56px;
+  z-index: 11;
+}
+.compare-table td {
+  padding: .5rem .4rem;
+  font-size: 12px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  word-break: break-word;
+}
+.compare-table td.row-label {
+  text-align: left;
+  font-size: 12px;
+  color: var(--ink);
+  font-weight: 400;
+  background: var(--surface-2);
+}
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table tr:hover td { background: #FAFAFA; }
+.compare-table tr:hover td.row-label { background: var(--surface-3); }
+.compare-table .cat-row td {
+  background: var(--ink);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  padding: .4rem .5rem;
+}
+.compare-table .cat-row td.row-label {
+  background: var(--ink);
+  color: rgba(255,255,255,.7);
+}
+.ct-yes  { color: #166534; font-size: 15px; }
+.ct-no   { color: #9CA3AF; font-size: 15px; }
+.ct-part { color: #92400E; font-size: 14px; }
+.ct-note { font-size: 9.5px; color: var(--ink-light); display: block; margin-top: 2px; line-height: 1.3; }
+.col-hd { font-size: 12px; font-weight: 700; display: block; }
+.col-sub { font-size: 9px; font-weight: 400; color: rgba(255,255,255,0.7); display: block; margin-top: 2px; line-height: 1.3; }
+
+/* ---- MACHINE CHIPS ---- */
+.machine-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin-top: .6rem;
+}
+.machine-chip {
+  font-size: 11px;
+  padding: 2px 9px;
+  border-radius: 99px;
+  font-weight: 500;
+  border: 1px solid currentColor;
+  opacity: .85;
+}
+
+@media print {
+  #compare { display: block !important; }
+  .compare-wrap { overflow: visible; }
+  .compare-table { min-width: unset; font-size: 11px; }
+}
+
+/* ---- DISCOVER ---- */
+.progress-wrap { margin-bottom: 1.75rem; }
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--ink-light);
+  margin-bottom: .5rem;
+}
+.progress-bar {
+  height: 3px;
+  background: var(--surface-3);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--navy-mid);
+  border-radius: 99px;
+  transition: width .4s ease;
+}
+.q-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1rem;
+}
+.q-card-head { padding: 1.5rem 1.75rem 1.25rem; }
+.q-text { font-size: 18px; font-weight: 600; letter-spacing: -.02em; line-height: 1.35; color: var(--ink); margin-bottom: .875rem; }
+.q-script {
+  font-size: 13px;
+  color: var(--navy);
+  background: var(--navy-light);
+  border-radius: var(--radius-md);
+  padding: .75rem 1rem;
+  line-height: 1.6;
+  border-left: 3px solid var(--navy-mid);
+}
+.q-script-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--navy-mid);
+  margin-bottom: .3rem;
+}
+.q-options { padding: 0 1.75rem 1.5rem; display: flex; flex-direction: column; gap: .5rem; }
+.opt {
+  display: flex;
+  align-items: flex-start;
+  gap: .875rem;
+  padding: .875rem 1rem;
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  background: var(--surface);
+  text-align: left;
+  transition: border-color .15s, background .15s;
+}
+.opt:hover { border-color: var(--navy-mid); background: var(--navy-light); }
+.opt.selected { border-color: var(--navy); border-width: 2px; background: var(--navy-light); }
+.opt-radio {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--border-mid);
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .15s;
+}
+.opt.selected .opt-radio { background: var(--navy); border-color: var(--navy); }
+.opt.selected .opt-radio::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: white; }
+.opt-body { flex: 1; }
+.opt-label { font-size: 14px; font-weight: 500; color: var(--ink); }
+.opt-sub { font-size: 12px; color: var(--ink-mid); margin-top: 2px; line-height: 1.4; }
+
+.q-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.btn {
+  font-size: 14px;
+  font-weight: 500;
+  padding: .6rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-mid);
+  background: var(--surface);
+  color: var(--ink-mid);
+  cursor: pointer;
+  transition: all .15s;
+  font-family: inherit;
+}
+.btn:hover { background: var(--surface-3); }
+.btn:disabled { opacity: .35; cursor: default; }
+.btn-primary {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: white;
+}
+.btn-primary:hover { background: var(--navy-mid); border-color: var(--navy-mid); }
+
+/* ---- RESULT ---- */
+.result-hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  color: white;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.result-hero h2 { font-size: 20px; font-weight: 600; letter-spacing: -.02em; }
+.result-hero p { font-size: 13px; color: rgba(255,255,255,.55); margin-top: .2rem; }
+.result-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1rem;
+}
+.result-card-header {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.result-card-body { padding: 1.25rem 1.5rem; }
+.result-score {
+  text-align: right;
+  flex-shrink: 0;
+}
+.result-score-num { font-size: 28px; font-weight: 600; letter-spacing: -.03em; }
+.result-score-label { font-size: 11px; color: var(--ink-light); margin-top: 1px; }
+.result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1rem; }
+.result-col-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--ink-light);
+  margin-bottom: .6rem;
+}
+.result-item { display: flex; gap: .5rem; font-size: 13px; color: var(--ink); padding: 3px 0; line-height: 1.45; align-items: flex-start; }
+.signals {
+  padding: .875rem 1rem;
+  background: var(--surface-2);
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+}
+.signals-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-light); margin-bottom: .5rem; }
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 99px;
+  margin: 2px;
+  font-weight: 500;
+}
+.next-step {
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-mid);
+  background: var(--surface);
+}
+.next-step-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--red); margin-bottom: .5rem; }
+.next-step-text { font-size: 13px; color: var(--ink); line-height: 1.65; }
+
+.result-actions {
+  display: flex;
+  gap: .75rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+.result-actions .btn { flex: 1; text-align: center; min-width: 140px; }
+
+/* ---- PRINT ---- */
+@media print {
+  .site-header, .nav-tabs, .q-nav, .result-actions, #home, #learn, #discover, #compete, #compare { display: none !important; }
+  .screen { display: block !important; padding-top: 0; }
+  #result { display: block !important; }
+  body { background: white; }
+  .result-hero { background: var(--navy) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .result-card { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+  .print-header { display: block !important; }
+}
+.print-header {
+  display: none;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--navy);
+}
+.print-header-inner { display: flex; align-items: center; justify-content: space-between; }
+.print-logo { font-size: 18px; font-weight: 700; color: var(--navy); }
+.print-logo span { color: var(--red); }
+.print-date { font-size: 12px; color: #888; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-block">
+      <div>
+        <div class="logo-text">Brüel &amp; Kjær Vibro</div>
+        <div class="logo-sub">A member of the NSK Group</div>
+      </div>
+    </div>
+    <nav class="nav-tabs">
+      <button class="nav-tab active" onclick="showScreen('home')">Home</button>
+      <button class="nav-tab" onclick="showScreen('learn')">Learn</button>
+      <button class="nav-tab" onclick="showScreen('compare')">Compare</button>
+      <button class="nav-tab" onclick="showScreen('compete')">Compete</button>
+      <button class="nav-tab" onclick="startDiscover()">Discovery</button>
+    </nav>
+  </div>
+</header>
+
+<div class="shell">
+
+  <!-- HOME -->
+  <div id="home" class="screen active">
+    <div class="home-hero">
+      <h1>Your product guide for the field</h1>
+      <p>Use Learn to get familiar with our products before a meeting. Use Discovery to find the right fit with your customer. Use Compete when you're up against Bently or Metrix.</p>
+    </div>
+    <div class="home-cards">
+      <div class="home-card" onclick="showScreen('learn')">
+        <div class="home-card-icon" style="background:#FDF0F2;">📚</div>
+        <h3>Learn the Products</h3>
+        <p>Plain-language overviews of all five B&amp;K Vibro products. Read before your meeting.</p>
+      </div>
+      <div class="home-card" onclick="startDiscover()">
+        <div class="home-card-icon" style="background:#EBF3FF;">🔍</div>
+        <h3>Discovery Checklist</h3>
+        <p>Guided questions with scripted prompts. Walk through with your customer to find the right fit.</p>
+      </div>
+      <div class="home-card" onclick="showScreen('compare')">
+        <div class="home-card-icon" style="background:#EEF2FF;">📊</div>
+        <h3>Product Comparison</h3>
+        <p>Side-by-side feature matrix for all five products. Print-friendly for customer meetings.</p>
+      </div>
+      <div class="home-card" onclick="showScreen('compete')">
+        <div class="home-card-icon" style="background:#F0FDF4;">⚔️</div>
+        <h3>Competitive Guide</h3>
+        <p>How to position against Bently Nevada 3500, Orbit 60, and Metrix.</p>
+      </div>
+    </div>
+    <div class="home-tip">
+      <strong>New to this?</strong> Start with <strong>Learn the Products</strong> to build your foundation. Then use <strong>Discovery</strong> in your customer conversation — the tool guides you through what to ask and what to say. You don't need to be an expert.
+    </div>
+  </div>
+
+  <!-- LEARN -->
+  <div id="learn" class="screen">
+    <div class="section-title">Products</div>
+    <div class="product-tabs" id="ptabs"></div>
+    <div id="product-panels"></div>
+  </div>
+
+  <!-- COMPARE -->
+  <div id="compare" class="screen">
+    <div class="section-title">Product Comparison</div>
+    <div class="compare-intro">Use this as a reference before or during a customer meeting. ◐ means partial or conditional.</div>
+    <div class="compare-wrap">
+      <div id="compare-table"></div>
+    </div>
+    <div style="margin-top:1rem;display:flex;gap:.75rem;flex-wrap:wrap">
+      <button class="btn btn-primary" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+  </div>
+
+  <!-- COMPETE -->
+  <div id="compete" class="screen">
+    <div class="section-title">Competitive Guide</div>
+    <div class="compete-intro">
+      These are the competitors you'll most commonly encounter. Understanding where B&amp;K Vibro wins — and where it's a tough fight — is as important as knowing our own products.
+    </div>
+    <div id="compete-cards"></div>
+  </div>
+
+  <!-- DISCOVER -->
+  <div id="discover" class="screen">
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span id="q-meta">Question 1 of 9</span>
+        <span id="q-pct">0%</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+    </div>
+    <div class="q-card">
+      <div class="q-card-head">
+        <div class="q-text" id="q-text"></div>
+        <div id="q-script-wrap" style="display:none">
+          <div class="q-script">
+            <div class="q-script-label">Say this to your customer</div>
+            <div id="q-script"></div>
+          </div>
+        </div>
+      </div>
+      <div class="q-options" id="q-options"></div>
+    </div>
+    <div class="q-nav">
+      <button class="btn" id="btn-back" onclick="goBack()" disabled>← Back</button>
+      <button class="btn btn-primary" id="btn-next" onclick="goNext()" disabled>Next →</button>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div id="result" class="screen">
+    <div class="print-header">
+      <div class="print-header-inner">
+        <div class="print-logo">Brüel &amp; Kjær <span>Vibro</span></div>
+        <div class="print-date">Discovery Result — <span id="print-date"></span></div>
+      </div>
+    </div>
+    <div id="result-content"></div>
+  </div>
+
+</div><!-- /shell -->
+
+<script>
+/* ============================================================
+   CONFIGURATION — Edit all product, question, and competitor
+   content here. The rest of the file handles display only.
+   ============================================================ */
+
+const CONFIG = {
+
+  products: {
+    vc: {
+      label: 'VC-8000',
+      tagline: 'Machinery Protection System',
+      badge: 'Critical machinery',
+      badgeColor: '#C8102E',
+      badgeBg: '#FDF0F2',
+      machines: ['Steam turbines','Gas turbines','Centrifugal compressors','Reciprocating compressors','Large generators','Expanders'],
+      summary: 'Think of the VC-8000 as the high-stakes guardian for your most critical machines — turbines, compressors, large rotating equipment. It lives in a rack in the control room, watches those machines around the clock, and can automatically shut them down before a catastrophic failure happens. It meets API 670, which is a mandatory compliance standard in oil & gas and power generation.',
+      pros: [
+        'API 670 compliant machinery protection',
+        'Continuous online monitoring for turbines & compressors',
+        'Rack-based trip/alert system — hardwired and permanent',
+        'Integrates with SETPOINT CMS and AVEVA PI System',
+        'Connects to VCM-3 for full plant-wide coverage'
+      ],
+      cons: [
+        'Highest cost and complexity of all our products',
+        'Requires in-house vibration expertise to operate',
+        'Not suited as standalone solution for auxiliary machines'
+      ],
+      elevator: '"If you have critical rotating machines — turbines or compressors — that absolutely cannot fail without serious consequences, the VC-8000 is what protects them. It\'s a permanent, rack-mounted system that monitors those machines continuously and meets the API 670 standard. Think of it as the last line of defense between normal operations and a catastrophic shutdown."',
+      nextStep: 'Present the VC-8000 datasheet and discuss installation scope. Recommend pairing with VCM-3 if they also have auxiliary machines to monitor.',
+      scores: {vc:2,vcm:0,go:0,bey:0,vp:0}
+    },
+    vcm: {
+      label: 'VCM-3',
+      tagline: 'Field-Mounted Condition Monitor',
+      badge: 'Auxiliary machinery',
+      badgeColor: '#1A7A4A',
+      badgeBg: '#F0FDF4',
+      machines: ['Centrifugal pumps','Fans & blowers','Electric motors','Cooling towers','Gearboxes','Reciprocating compressors (CM only)'],
+      summary: 'The VCM-3 is a compact monitoring device that mounts near a machine in the field — no control room rack needed. Designed for the supporting machines in a plant: fans, pumps, motors, blowers, gearboxes. It continuously watches those machines for developing faults and connects into the same software as the VC-8000 for a complete plant-wide picture. Has an ATEX-rated version for hazardous areas (Zone 2 / Class 1 Div 2).',
+      pros: [
+        'Ideal for fans, pumps, motors, blowers, gearboxes',
+        'Field-mounted — no rack or control room needed',
+        'ATEX Zone 2 / Class 1 Div 2 version available',
+        'Scalable monitoring templates — standard to custom',
+        'Integrates with SETPOINT CMS and BKV Beyond'
+      ],
+      cons: [
+        'Not a protection system — no API 670 compliance',
+        'Wired — cabling installation still required',
+        'Custom templates require some expertise to configure'
+      ],
+      elevator: '"The VCM-3 is what we use for the supporting machines in a plant — your pumps, fans, motors. It mounts right next to the machine and continuously tracks the health of those assets so you catch problems early instead of during a breakdown. It\'s a fraction of the cost of a rack system and connects to the same software if you ever want a full plant-wide view."',
+      nextStep: 'Walk through the standard vs custom template options. Ask if they have an existing PI System. Consider BKV Go if they are brand new to monitoring.',
+      scores: {vc:0,vcm:2,go:0,bey:0,vp:0}
+    },
+    go: {
+      label: 'BKV Go',
+      tagline: 'Entry-Level Starter Kit',
+      badge: 'Entry level',
+      badgeColor: '#3B6D11',
+      badgeBg: '#F0FDF4',
+      machines: ['Fixed-speed motors','Fixed-speed pumps','Fixed-speed fans','Small HVAC equipment'],
+      summary: 'BKV Go is the easiest way to get started with vibration monitoring. A complete kit — VCM-3 hardware, sensors, cables, and a simple dashboard built into the device. No software to install, no expertise needed. Comes in three sizes for 2, 4, or 6 machines. Includes 12 months of remote support. Uses the same VCM-3 hardware inside, so customers can upgrade to BKV Beyond or SETPOINT without replacing hardware. Not rated for hazardous areas.',
+      pros: [
+        'Complete out-of-the-box kit — device, sensors, cables',
+        'No software or IT infrastructure required',
+        'Simple traffic-light dashboard on the device itself',
+        'Upgradeable to BKV Beyond or SETPOINT — no new hardware',
+        '12 months remote support included'
+      ],
+      cons: [
+        'Fixed speed machines only — no variable speed',
+        'Not rated for hazardous areas',
+        'Maximum 6 machines per kit',
+        'Limited diagnostic depth vs full VCM-3 with SETPOINT'
+      ],
+      elevator: '"If you\'ve never done vibration monitoring before and want to get started without a big investment or learning curve, BKV Go is it. Everything is in the box — sensors, cables, the device. The dashboard runs on the device itself. Green means good, yellow means take a look, red means act now. And if you need more later, the hardware upgrades automatically."',
+      nextStep: 'Confirm machine count and type (motors, pumps, fans at steady-state speed). Walk through the three kit sizes (2, 4, or 6 machines). Emphasize the upgrade path.',
+      scores: {vc:0,vcm:0,go:2,bey:0,vp:0}
+    },
+    bey: {
+      label: 'BKV Beyond',
+      tagline: 'Condition Monitoring as a Service',
+      badge: 'Managed service',
+      badgeColor: '#854F0B',
+      badgeBg: '#FEFCE8',
+      machines: ['Pumps','Fans & blowers','Motors','Gearboxes','Semi-critical rotating equipment','Cooling towers'],
+      summary: 'BKV Beyond is a fully managed service — B&K Vibro handles the monitoring for the customer. Wireless sensors attach to machines in minutes, data goes to the cloud, AI analyzes it, and B&K Vibro\'s own ISO-certified analysts review every alert before sending an actionable recommendation. The customer never needs to interpret data themselves. Subscription-based. Works with auxiliary and semi-critical machines.',
+      pros: [
+        'Wireless sensors — fast installation, no cabling required',
+        'AI fault detection verified by B&K Vibro ISO-certified analysts',
+        'Subscription model — no large CapEx needed',
+        'No in-house vibration expertise required at all',
+        'No IT infrastructure or server needed'
+      ],
+      cons: [
+        'Auxiliary and semi-critical machines only — not a protection system',
+        'Not API 670 compliant',
+        'Subscription model may not suit CapEx-only procurement'
+      ],
+      elevator: '"BKV Beyond is for customers who want expert-level monitoring without having that expertise in house. We send wireless sensors, you attach them to your machines, and B&K Vibro handles everything from there — AI monitoring, expert review, actionable recommendations. You only hear from us when something actually needs attention. It\'s a subscription, no big upfront purchase."',
+      nextStep: 'Schedule a free Value Vision consultation — it maps out the ROI roadmap. Discuss machine count and site layout for sensor planning.',
+      scores: {vc:0,vcm:0,go:0,bey:2,vp:0}
+    },
+    vp: {
+      label: 'VP-8000',
+      tagline: 'Portable Vibration Analyzer',
+      badge: 'Portable',
+      badgeColor: '#4338CA',
+      badgeBg: '#EEF2FF',
+      machines: ['Any machine (temporary)','Steam & gas turbines','Compressors','Pumps & motors','Post-turnaround verification','Startup & coast-down capture'],
+      summary: 'The VP-8000 is the portable version of the VC-8000 — same hardware, built for carrying machine to machine. Used for temporary diagnostics: verifying machine health after a turnaround or repair, troubleshooting a problem machine, or capturing startup and coast-down data. Connects to existing protection systems via BNC outputs or directly to temporary sensors. Rental available in the USA. Requires someone who can interpret the data.',
+      pros: [
+        'Portable — carry to machines across the plant or site',
+        'Connects to existing protection systems via BNC outputs',
+        'Advanced SETPOINT diagnostics: orbits, PV plots, Bode/polar plots',
+        'Works standalone with laptop or exports to PI historian',
+        'Rental option available in the USA'
+      ],
+      cons: [
+        'Not a permanent continuous monitoring solution',
+        'Requires in-house analyst expertise to interpret data',
+        'No ATEX / hazardous area version available'
+      ],
+      elevator: '"The VP-8000 is our portable diagnostic unit — same technology as our flagship VC-8000 rack system, packaged to carry around the plant. If you need to verify a machine is healthy after a major repair, capture startup data, or dig into why a specific machine is behaving oddly, this is what you bring to it. It\'s not a permanent installation — it\'s a powerful tool you use when and where you need it."',
+      nextStep: 'Clarify the use case — post-turnaround, troubleshooting, or startup verification. Ask if rental or purchase fits better. Confirm they have someone to analyze the data.',
+      scores: {vc:0,vcm:0,go:0,bey:0,vp:2}
+    }
+  },
+
+  questions: [
+    {
+      q: 'Are they looking for permanent monitoring or a one-time diagnostic?',
+      script: '"Are you looking to have a permanent system on your machines that monitors them around the clock — or is this more of a one-time thing, like checking a machine after a repair or troubleshooting a specific issue?"',
+      opts: [
+        {label:'Permanent, continuous monitoring', sub:'Always-on, installed at the machine', val:{vc:2,vcm:2,go:2,bey:2,vp:0}},
+        {label:'Temporary or one-time diagnostic', sub:'Post-turnaround, startup, or troubleshooting', val:{vc:0,vcm:0,go:0,bey:0,vp:5}},
+        {label:'Both', sub:'Permanent system plus portable capability', val:{vc:1,vcm:1,go:0,bey:0,vp:3}},
+        {label:'Not sure yet', sub:null, val:{vc:1,vcm:1,go:1,bey:1,vp:1}}
+      ]
+    },
+    {
+      q: 'What kind of machines are they monitoring?',
+      script: '"What types of machines are you looking to put monitoring on? For example — turbines, compressors, or more everyday equipment like pumps, fans, and motors?"',
+      opts: [
+        {label:'Turbines or large compressors', sub:'Steam, gas, hydro turbines — centrifugal or reciprocating compressors', val:{vc:4,vcm:0,go:0,bey:0,vp:2}},
+        {label:'Fans, pumps, motors, blowers', sub:'Auxiliary or balance of plant equipment', val:{vc:0,vcm:2,go:2,bey:2,vp:1}},
+        {label:'Mix of both', sub:'Critical machines plus supporting equipment', val:{vc:2,vcm:2,go:1,bey:1,vp:1}},
+        {label:'Not sure / other', sub:null, val:{vc:1,vcm:1,go:1,bey:1,vp:1}}
+      ]
+    },
+    {
+      q: 'Do they have a compliance requirement for API 670?',
+      script: '"Is API 670 compliance a requirement for this installation? That\'s a common standard in oil and gas and power generation — sometimes it\'s mandatory, sometimes it\'s not a factor at all."',
+      opts: [
+        {label:'Yes, API 670 is required', sub:'Common in oil & gas, petrochemical, power generation', val:{vc:4,vcm:0,go:0,bey:0,vp:0}},
+        {label:'No, not a requirement', sub:'Condition monitoring is the goal, not protection', val:{vc:0,vcm:2,go:2,bey:2,vp:1}},
+        {label:'Not sure', sub:null, val:{vc:1,vcm:1,go:1,bey:1,vp:1}}
+      ]
+    },
+    {
+      q: 'What is their main goal — protect machines or track their health?',
+      script: '"When you think about what you\'re trying to accomplish — is it more about protecting critical machines from catastrophic failure, or is it about tracking machine health over time so you can plan maintenance before something breaks?"',
+      opts: [
+        {label:'Protect machines — prevent catastrophic failure', sub:'Trip systems, safety-critical, continuous protection', val:{vc:4,vcm:0,go:0,bey:0,vp:0}},
+        {label:'Track health and plan maintenance', sub:'Catch developing problems early, reduce unplanned downtime', val:{vc:1,vcm:2,go:2,bey:3,vp:1}},
+        {label:'Deep diagnostic analysis', sub:'Root cause investigation, startup data, post-repair verification', val:{vc:0,vcm:0,go:0,bey:0,vp:4}},
+        {label:'Both protection and health monitoring', sub:'Full plant-wide view', val:{vc:3,vcm:2,go:1,bey:0,vp:0}}
+      ]
+    },
+    {
+      q: 'Do they have vibration analysis expertise on their team?',
+      script: '"Do you have anyone on your team who works with vibration data — someone who can look at trends and spectra and make decisions based on what they see? Or is this something you\'d want handled for you?"',
+      opts: [
+        {label:'Yes, skilled analyst or engineer on staff', sub:'Can interpret data and act independently', val:{vc:2,vcm:2,go:0,bey:0,vp:3}},
+        {label:'Some knowledge, not a dedicated analyst', sub:'Could use guidance and support', val:{vc:0,vcm:1,go:2,bey:2,vp:1}},
+        {label:'No expertise — needs it handled for them', sub:'Wants a fully managed solution', val:{vc:0,vcm:0,go:2,bey:4,vp:0}}
+      ]
+    },
+    {
+      q: 'How do they prefer to purchase?',
+      script: '"On the commercial side — are you typically working with a capital budget where you buy equipment outright, or is an ongoing subscription or service-based model something that works in your environment?"',
+      opts: [
+        {label:'Capital purchase (CapEx)', sub:'Buy hardware and software upfront', val:{vc:2,vcm:2,go:2,bey:0,vp:2}},
+        {label:'Rental — short-term use only', sub:'VP-8000 available for rental in the USA', val:{vc:0,vcm:0,go:0,bey:0,vp:4}},
+        {label:'Subscription / service model (OpEx)', sub:'Monthly or annual fee, no large upfront cost', val:{vc:0,vcm:0,go:0,bey:4,vp:0}},
+        {label:'Flexible or not yet decided', sub:null, val:{vc:1,vcm:1,go:1,bey:1,vp:1}}
+      ]
+    },
+    {
+      q: 'What is their installation preference?',
+      script: '"How are you thinking about the physical installation? Some customers want a rack-mounted system in the control room, others want small devices mounted right at the machine, and some prefer wireless sensors with no cabling at all."',
+      opts: [
+        {label:'Rack-mounted in the control room', sub:'Permanent hardwired installation', val:{vc:4,vcm:0,go:0,bey:0,vp:0}},
+        {label:'Small device mounted near the machine', sub:'Field unit, wired sensors', val:{vc:0,vcm:3,go:2,bey:0,vp:0}},
+        {label:'Wireless sensors — fast, no cabling', sub:'Plug-and-play installation', val:{vc:0,vcm:0,go:0,bey:4,vp:0}},
+        {label:'Portable — connect temporarily as needed', sub:'Move between machines or attach to existing systems', val:{vc:0,vcm:0,go:0,bey:0,vp:4}},
+        {label:'No preference', sub:null, val:{vc:1,vcm:1,go:1,bey:1,vp:1}}
+      ]
+    },
+    {
+      q: 'Is the installation in a hazardous area?',
+      script: '"Is the area where these machines are located classified as a hazardous area — for example, is there a risk of flammable gas or explosive atmosphere? That affects which products are approved for use there."',
+      opts: [
+        {label:'Yes — hazardous area (ATEX or NEC)', sub:'Flammable gas, explosive atmosphere present', val:{vc:1,vcm:3,go:0,bey:0,vp:0}},
+        {label:'No — standard industrial environment', sub:null, val:{vc:1,vcm:1,go:2,bey:2,vp:2}},
+        {label:'Unknown', sub:null, val:{vc:1,vcm:1,go:1,bey:1,vp:1}}
+      ]
+    },
+    {
+      q: 'What is their IT and data preference?',
+      script: '"On the software side — do you already have an AVEVA PI System or similar infrastructure you\'d want this to connect to? Or would you prefer something that just works without any IT involvement?"',
+      opts: [
+        {label:'On-premises — PI System or prefer local data', sub:'Existing infrastructure, no cloud required', val:{vc:3,vcm:2,go:1,bey:0,vp:2}},
+        {label:'Cloud / SaaS — no server needed', sub:'Hosted platform, minimal IT involvement', val:{vc:0,vcm:0,go:0,bey:4,vp:0}},
+        {label:'Standalone — laptop or device dashboard only', sub:'No server or cloud needed', val:{vc:0,vcm:0,go:3,bey:0,vp:2}},
+        {label:'Flexible / no strong preference', sub:null, val:{vc:1,vcm:1,go:1,bey:2,vp:1}}
+      ]
+    }
+  ],
+
+  sigLabels: [
+    ['Permanent monitoring','Temporary/portable','Permanent + portable','Undecided'],
+    ['Critical machinery (turbines/compressors)','Auxiliary/BoP machinery','Mixed plant','Undecided'],
+    ['API 670 required','No compliance requirement','Unsure'],
+    ['Protection priority','Condition monitoring priority','Deep diagnostics priority','Protection + monitoring'],
+    ['In-house analyst expertise','Limited expertise','No vibration expertise'],
+    ['CapEx purchase','Rental model','OpEx/subscription','Flexible'],
+    ['Rack-mounted install','Field-mounted device','Wireless install','Portable/temporary','No preference'],
+    ['Hazardous area','Standard environment','Unknown'],
+    ['On-premises PI/data','Cloud/SaaS','Standalone device','Flexible']
+  ],
+
+  competitors: [
+    {
+      name: 'Bently Nevada 3500',
+      owner: 'Baker Hughes',
+      threat: 'High',
+      eolNote: 'NOTE: The 3500 platform is NOT end of life. Bently Nevada has officially denied EOL rumors — it remains in Phase 1 (Current Product) with full support. Some legacy individual modules have been discontinued as part of electronics refreshes, which is where the rumor originates. Bently is actively pushing customers toward Orbit 60 for new projects, but existing 3500 installations are fully supported.',
+      overview: 'The 3500 is the dominant rack-based machinery protection system on the planet. Over 85,000 systems installed globally, active since 1995, still selling strong. It is the platform every customer in oil & gas, power generation, and petrochemical recognizes and defaults to. Inertia alone makes this a hard account to break into.',
+      theirPros: [
+        '85,000+ systems installed — massive reference base',
+        'API 670 compliant, SIL 2 available',
+        'ATEX, FM, CSA, CE hazardous area approvals',
+        'Broadest module library in the market',
+        'System 1 CMS software is mature and widely adopted',
+        'Backwards compatible — boards from 2025 work in 1995 chassis',
+        'Manufactured in Minden, Nevada — US-made story'
+      ],
+      theirCons: [
+        'Aging architecture — no native cybersecurity design',
+        'Complex configuration and high TCO',
+        'Support experience varies by region — known pain point',
+        'Baker Hughes is a large conglomerate — customers can feel lost',
+        'No field-mounted CM unit, no managed service, no wireless offering',
+        'Individual legacy modules being phased out as parts age out'
+      ],
+      ourAdvantages: [
+        'VC-8000 wins on modern architecture and ease of configuration',
+        'SETPOINT/PI integration is cleaner and more purpose-built',
+        'Independent company — better support relationships',
+        'VCM-3, BKV Go, BKV Beyond cover auxiliary machines Bently ignores',
+        'Customers frustrated with Bently pricing or support complexity are receptive'
+      ],
+      strategy: 'In an active Bently 3500 account, do not fight the installed system head-on — you will lose. Instead, sell around it. VCM-3 and BKV Beyond cover every auxiliary and BoP machine that Bently has no answer for at competitive price points. That is uncontested territory. Build your foothold there, then be present when the critical machine conversation comes up at renewal or expansion.'
+    },
+    {
+      name: 'Bently Nevada Orbit 60',
+      owner: 'Baker Hughes — next-generation platform',
+      threat: 'High',
+      eolNote: 'Orbit 60 is Bently Nevada\'s active push for all new greenfield projects and 3500 replacements. It is newer and still maturing in the field — some customers are being cautious about early adoption — but Bently is betting the company on this platform replacing 3500 sales within a few years.',
+      overview: 'Orbit 60 is Bently Nevada\'s next-generation protection system, built from scratch with cybersecurity as a first-class feature. Distributed architecture means I/O modules can be placed at the machine rather than only in the control room. Highest channel density available — up to 80 dynamic vibration channels. This is where Bently is steering every new project and upgrade conversation.',
+      theirPros: [
+        'First machinery monitoring system built to IEC 62443-4-2 cybersecurity standard (up to SL4)',
+        'Distributed I/O — modules can be placed at the machine, not just the control room',
+        'Up to 80 dynamic vibration + 100 static inputs in a single deployment',
+        '6U double-height chassis — more channels in same rack footprint as 3500',
+        'System 1 CMS integration — same software as 3500',
+        'Bently Nevada brand name and global support network',
+        'Torsional vibration and combustion monitoring on roadmap'
+      ],
+      theirCons: [
+        'Newer platform — fewer field hours than 3500, some customers still cautious',
+        'Larger Baker Hughes organization means support can be slow or impersonal',
+        'Higher complexity and cost for smaller installations',
+        'No managed service, no wireless condition monitoring offering',
+        'No BKV Beyond or VCM-3 equivalent for auxiliary machines'
+      ],
+      ourAdvantages: [
+        'VC-8000 is proven, fully shipping, and battle-tested today',
+        'Orbit 60 is still maturing — VC-8000 has no field-maturity risk',
+        'B&K Vibro is independent — better, more responsive support',
+        'SETPOINT/PI integration is mature and well-documented',
+        'VCM-3 and BKV Beyond give us a full plant story that Bently cannot match'
+      ],
+      strategy: 'On large greenfield projects with a cybersecurity mandate, this is the hardest fight we face. Lead with VC-8000\'s track record, our independence, and the total plant story — VCM-3 and BKV Beyond alongside VC-8000 cover the whole plant in a way Orbit 60 simply cannot. If a customer is skeptical about adopting a newer system, VC-8000\'s proven field history is a genuine differentiator.'
+    },
+    {
+      name: 'Metrix',
+      owner: 'Metrix Instrument Co. (subsidiary of Indicor)',
+      threat: 'Medium',
+      eolNote: 'Metrix has no next-generation platform in development that we are aware of. No wireless offering, no cloud analytics, no managed service. Their biggest recent product development is the Digital Proximity System (DPS) — a smarter proximity probe that replaces older systems while staying API 670 compliant. They are not moving into the condition monitoring as a service space.',
+      overview: 'Metrix pioneered simple, affordable machinery protection — vibration switches, 4-20mA transmitters, and proximity systems. Their flagship modular protection rack is the MX5000. Strong sensor and transmitter portfolio used across the industry; many plants run Metrix sensors feeding other monitoring systems. Compete on price and fast lead times. Subsidiary of Indicor, a diversified industrial products company.',
+      theirPros: [
+        'Strong price competitiveness — lower entry cost for basic protection',
+        'API 670 compliant MX5000 protection system',
+        'Digital Proximity System (DPS) — works with 40+ shaft materials and legacy probe systems',
+        '36-month product warranty',
+        'Fast spare parts lead times — a frequently cited differentiator',
+        'Hazardous area and SIL ratings available',
+        'Widely used sensor and transmitter portfolio — strong cross-compatibility',
+        'ISO 9001 certified manufacturing'
+      ],
+      theirCons: [
+        'No managed service or CMaaS offering — zero equivalent to BKV Beyond',
+        'No field-mounted condition monitoring device comparable to VCM-3',
+        'No entry-level packaged kit comparable to BKV Go',
+        'No cloud analytics or AI-based fault detection',
+        'MX5000 maxes at 24 channels — limited scalability',
+        'No portable diagnostic analyzer comparable to VP-8000',
+        'Software stack is limited — no SETPOINT/PI equivalent depth'
+      ],
+      ourAdvantages: [
+        'Full condition monitoring ecosystem vs. Metrix\'s protection-only approach',
+        'VCM-3 adds real CM where Metrix only offers basic protection',
+        'BKV Beyond is a category Metrix cannot compete in at all',
+        'BKV Go packages everything a first-time customer needs — Metrix has no equivalent',
+        'SETPOINT software depth far exceeds Metrix\'s capabilities'
+      ],
+      strategy: 'Metrix customers are often price-sensitive and bought in on simplicity. Do not try to upgrade them on the protection side — that is their strength. The play is additive: sell VCM-3 or BKV Go on top of existing Metrix protection hardware to deliver actual condition monitoring that Metrix never offered them. A customer who already trusts Metrix for switches is a natural prospect for us on the CM side.'
+    }
+  ],
+
+  compareMatrix: {
+    categories: [
+      {
+        label: 'Machine Types',
+        rows: [
+          {label:'Steam turbines',                  vals:['yes','no','no','no','yes']},
+          {label:'Gas turbines',                     vals:['yes','no','no','no','yes']},
+          {label:'Centrifugal compressors',          vals:['yes','no','no','no','yes']},
+          {label:'Reciprocating compressors',        vals:['yes','part','no','no','yes'], notes:[null,'CM only — not protection',null,null,null]},
+          {label:'Large generators / expanders',     vals:['yes','no','no','no','yes']},
+          {label:'Centrifugal pumps',                vals:['no','yes','yes','yes','yes']},
+          {label:'Fans & blowers',                   vals:['no','yes','yes','yes','yes']},
+          {label:'Electric motors',                  vals:['no','yes','yes','yes','yes']},
+          {label:'Gearboxes',                        vals:['no','yes','part','yes','yes'], notes:[null,null,'Fixed speed only',null,null]},
+          {label:'Cooling towers',                   vals:['no','yes','no','yes','no']},
+        ]
+      },
+      {
+        label: 'Protection & Monitoring',
+        rows: [
+          {label:'API 670 compliant protection',     vals:['yes','no','no','no','yes']},
+          {label:'Automatic trip / machine shutdown',vals:['yes','no','no','no','no']},
+          {label:'Continuous online monitoring',     vals:['yes','yes','yes','yes','no']},
+          {label:'Condition monitoring & trending',  vals:['part','yes','part','yes','yes'], notes:['Requires SETPOINT',null,'Basic dashboard only',null,null]},
+          {label:'AI-based fault detection',         vals:['no','no','no','yes','no']},
+          {label:'Expert analyst review included',   vals:['no','no','no','yes','no']},
+          {label:'Variable speed machines',          vals:['yes','yes','no','yes','yes']},
+        ]
+      },
+      {
+        label: 'Installation & Hardware',
+        rows: [
+          {label:'Wireless sensors',                 vals:['no','no','no','yes','no']},
+          {label:'Field-mounted (near machine)',      vals:['no','yes','yes','no','no']},
+          {label:'Rack-mounted (control room)',       vals:['yes','no','no','no','no']},
+          {label:'Portable (carry machine to machine)',vals:['no','no','no','no','yes']},
+          {label:'Hazardous area rated (ATEX/NEC)',   vals:['yes','part','no','no','no'], notes:[null,'Zone 2 / Class 1 Div 2 only',null,'Not confirmed',null]},
+          {label:'Complete out-of-box kit',           vals:['no','no','yes','no','no']},
+          {label:'Max 6 machines (hardware limit)',   vals:['no','no','yes','no','no']},
+        ]
+      },
+      {
+        label: 'Software & Data',
+        rows: [
+          {label:'SETPOINT CMS integration',         vals:['yes','yes','part','no','yes'], notes:[null,null,'Upgradeable',null,null]},
+          {label:'AVEVA PI System integration',      vals:['yes','yes','no','no','yes']},
+          {label:'Cloud / no server required',       vals:['no','no','yes','yes','part'], notes:[null,null,null,null,'Standalone laptop']},
+          {label:'No IT involvement needed',         vals:['no','no','yes','yes','part'], notes:[null,null,null,null,'Laptop required']},
+          {label:'Standalone device dashboard',      vals:['no','no','yes','no','no']},
+        ]
+      },
+      {
+        label: 'Expertise & Support',
+        rows: [
+          {label:'No vibration expertise required',  vals:['no','part','yes','yes','no'], notes:[null,'Standard template only',null,null,null]},
+          {label:'Managed by B&K Vibro analysts',    vals:['no','no','no','yes','no']},
+          {label:'12 months remote support included',vals:['no','no','yes','no','no']},
+          {label:'In-house expertise recommended',   vals:['yes','part','no','no','yes'], notes:[null,'For custom templates',null,null,null]},
+        ]
+      },
+      {
+        label: 'Commercial',
+        rows: [
+          {label:'CapEx / purchase',                 vals:['yes','yes','yes','no','yes']},
+          {label:'Subscription / OpEx model',        vals:['no','no','no','yes','no']},
+          {label:'Rental available (USA)',            vals:['no','no','no','no','yes']},
+          {label:'Upgrade path to full platform',    vals:['no','yes','yes','part','no'], notes:[null,null,'Same hardware, no swap',null,null]},
+          {label:'Entry-level price point',          vals:['no','part','yes','part','no']},
+        ]
+      }
+    ]
+  }
+
+}; 
+
+/* ============================================================
+   APPLICATION LOGIC — Do not edit below this line
+   unless you know what you're doing
+   ============================================================ */
+
+let curQ = 0;
+let answers = [];
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  const map = {home:0, learn:1, compare:2, compete:3, discover:4, result:4};
+  const tabs = document.querySelectorAll('.nav-tab');
+  if (map[id] !== undefined) tabs[map[id]].classList.add('active');
+
+  window.scrollTo(0,0);
+}
+
+function startDiscover() {
+  curQ = 0;
+  answers = new Array(CONFIG.questions.length).fill(null);
+  showScreen('discover');
+  renderQ();
+}
+
+// Build Learn panels
+function buildLearn() {
+  const keys = Object.keys(CONFIG.products);
+  const tabsEl = document.getElementById('ptabs');
+  const panelsEl = document.getElementById('product-panels');
+  keys.forEach((k, i) => {
+    const p = CONFIG.products[k];
+    const tab = document.createElement('button');
+    tab.className = 'ptab' + (i === 0 ? ' active' : '');
+    tab.textContent = p.label;
+    tab.onclick = () => showProduct(k);
+    tabsEl.appendChild(tab);
+
+    const panel = document.createElement('div');
+    panel.id = 'panel-' + k;
+    panel.className = 'product-panel' + (i === 0 ? ' active' : '');
+    panel.innerHTML = `
+      <div class="prod-card">
+        <div class="prod-card-header">
+          <div>
+            <div class="prod-name">${p.label}</div>
+            <div class="prod-tagline">${p.tagline}</div>
+            ${p.machines ? `<div class="machine-chips">${p.machines.map(m => `<span class="machine-chip" style="color:${p.badgeColor};border-color:${p.badgeColor};background:${p.badgeBg}">${m}</span>`).join('')}</div>` : ''}
+          </div>
+          <span class="prod-badge" style="background:${p.badgeBg};color:${p.badgeColor}">${p.badge}</span>
+        </div>
+        <div class="prod-summary">${p.summary}</div>
+        <div class="prod-grid">
+          <div class="prod-col">
+            <div class="prod-col-title">Best for</div>
+            ${p.pros.map(x => `<div class="prod-item"><span class="chk">✓</span><span>${x}</span></div>`).join('')}
+          </div>
+          <div class="prod-col">
+            <div class="prod-col-title">Not the right fit when</div>
+            ${p.cons.map(x => `<div class="prod-item"><span class="xmk">✗</span><span>${x}</span></div>`).join('')}
+          </div>
+        </div>
+        <div class="elevator">
+          <div class="elevator-label">Say this to a customer</div>
+          <div class="elevator-text">${p.elevator}</div>
+        </div>
+      </div>`;
+    panelsEl.appendChild(panel);
+  });
+}
+
+function showProduct(key) {
+  const keys = Object.keys(CONFIG.products);
+  document.querySelectorAll('.ptab').forEach((t, i) => t.classList.toggle('active', keys[i] === key));
+  document.querySelectorAll('.product-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + key).classList.add('active');
+}
+
+// Build Compare table
+function buildCompare() {
+  const keys = Object.keys(CONFIG.products);
+  const prods = keys.map(k => CONFIG.products[k]);
+  const colColors = ['#0F2044','#1E3A6E','#243F5A','#2B4A7A','#162F5C'];
+  const iconMap = { yes:'✓', no:'–', part:'◐' };
+  const classMap = { yes:'ct-yes', no:'ct-no', part:'ct-part' };
+
+  let html = `<table class="compare-table">
+    <thead><tr>
+      <th class="col-label">Feature</th>
+      ${prods.map((p,i) => `<th style="background:${colColors[i]};color:white">
+        <span class="col-hd">${p.label}</span>
+        <span class="col-sub">${p.tagline}</span>
+      </th>`).join('')}
+    </tr></thead><tbody>`;
+
+  CONFIG.compareMatrix.categories.forEach(cat => {
+    html += `<tr class="cat-row"><td class="row-label" colspan="${keys.length + 1}">${cat.label}</td></tr>`;
+    cat.rows.forEach(row => {
+      html += `<tr><td class="row-label">${row.label}</td>`;
+      row.vals.forEach((v, i) => {
+        const note = row.notes ? row.notes[i] : null;
+        html += `<td><span class="${classMap[v]}">${iconMap[v]}</span>${note ? `<span class="ct-note">${note}</span>` : ''}</td>`;
+      });
+      html += '</tr>';
+    });
+  });
+
+  html += `</tbody></table>`;
+  html += `<div style="margin-top:.75rem;font-size:11.5px;color:var(--ink-light);display:flex;gap:1.5rem">
+    <span><strong style="color:#166534">✓</strong> Yes</span>
+    <span><strong style="color:#92400E">◐</strong> Partial / conditional</span>
+    <span><strong style="color:#9CA3AF">–</strong> No</span>
+  </div>`;
+  document.getElementById('compare-table').innerHTML = html;
+}
+
+// Build Compete cards
+function buildCompete() {
+  const el = document.getElementById('compete-cards');
+  CONFIG.competitors.forEach(c => {
+    const card = document.createElement('div');
+    card.className = 'compete-card';
+    const threatClass = c.threat === 'High' ? 'threat-high' : 'threat-mid';
+    card.innerHTML = `
+      <div class="compete-header">
+        <div>
+          <div class="compete-name">${c.name}</div>
+          <div class="compete-owner">${c.owner}</div>
+        </div>
+        <span class="compete-threat ${threatClass}">${c.threat} threat</span>
+      </div>
+      <div class="compete-body">
+        ${c.eolNote ? `<div class="compete-note"><span class="compete-note-label">Field intel</span>${c.eolNote}</div>` : ''}
+        <div class="compete-section">
+          <div class="compete-section-title">What they are</div>
+          <div class="compete-text">${c.overview}</div>
+        </div>
+        <div class="compete-pcgrid">
+          <div class="compete-pc-col">
+            <div class="compete-pc-title their">Their strengths</div>
+            ${c.theirPros.map(x => `<div class="compete-pc-item"><span class="chk">&#10003;</span><span>${x}</span></div>`).join('')}
+          </div>
+          <div class="compete-pc-col">
+            <div class="compete-pc-title their-con">Their weaknesses</div>
+            ${c.theirCons.map(x => `<div class="compete-pc-item"><span class="xmk">&#10007;</span><span>${x}</span></div>`).join('')}
+          </div>
+        </div>
+        <div class="compete-section" style="margin-top:1rem">
+          <div class="compete-section-title">Where B&amp;K Vibro wins</div>
+          ${c.ourAdvantages.map(x => `<div class="compete-pc-item our"><span style="color:#1A7A4A;flex-shrink:0;font-size:11px">&#9658;</span><span>${x}</span></div>`).join('')}
+        </div>
+        <div class="compete-win">
+          <strong>Sales strategy</strong>${c.strategy}
+        </div>
+      </div>`;
+    el.appendChild(card);
+  });
+}
+
+// Discovery
+function renderQ() {
+  const q = CONFIG.questions[curQ];
+  const total = CONFIG.questions.length;
+  const pct = Math.round((curQ / total) * 100);
+  document.getElementById('q-meta').textContent = `Question ${curQ + 1} of ${total}`;
+  document.getElementById('q-pct').textContent = pct + '%';
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('q-text').textContent = q.q;
+  if (q.script) {
+    document.getElementById('q-script-wrap').style.display = 'block';
+    document.getElementById('q-script').textContent = q.script;
+  } else {
+    document.getElementById('q-script-wrap').style.display = 'none';
+  }
+  const optsEl = document.getElementById('q-options');
+  optsEl.innerHTML = '';
+  q.opts.forEach((o, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt' + (answers[curQ] === i ? ' selected' : '');
+    btn.innerHTML = `<div class="opt-radio"></div><div class="opt-body"><div class="opt-label">${o.label}</div>${o.sub ? `<div class="opt-sub">${o.sub}</div>` : ''}</div>`;
+    btn.onclick = () => {
+      answers[curQ] = i;
+      document.querySelectorAll('.opt').forEach((el, idx) => el.classList.toggle('selected', idx === i));
+      document.getElementById('btn-next').disabled = false;
+    };
+    optsEl.appendChild(btn);
+  });
+  document.getElementById('btn-back').disabled = curQ === 0;
+  document.getElementById('btn-next').disabled = answers[curQ] === null;
+  document.getElementById('btn-next').textContent = curQ === total - 1 ? 'See recommendation →' : 'Next →';
+}
+
+function goNext() {
+  if (curQ < CONFIG.questions.length - 1) { curQ++; renderQ(); }
+  else showResult();
+}
+function goBack() { if (curQ > 0) { curQ--; renderQ(); } }
+
+function showResult() {
+  const scores = {vc:0, vcm:0, go:0, bey:0, vp:0};
+  const sigs = {vc:[], vcm:[], go:[], bey:[], vp:[]};
+  answers.forEach((a, qi) => {
+    if (a === null) return;
+    const v = CONFIG.questions[qi].opts[a].val;
+    Object.keys(scores).forEach(k => {
+      scores[k] += v[k];
+      if (v[k] > 0) sigs[k].push(CONFIG.sigLabels[qi][a]);
+    });
+  });
+  const total = Object.values(scores).reduce((a,b) => a+b, 0) || 1;
+  const ranked = Object.keys(CONFIG.products)
+    .map(k => ({...CONFIG.products[k], key: k, score: scores[k]}))
+    .sort((a, b) => b.score - a.score);
+  const pct = k => Math.round((scores[k] / total) * 100);
+
+  document.getElementById('print-date').textContent = new Date().toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'});
+
+  let html = `<div class="result-hero">
+    <div>
+      <h2>Discovery Recommendation</h2>
+      <p>Based on ${answers.filter(a => a !== null).length} of ${CONFIG.questions.length} questions answered</p>
+    </div>
+  </div>`;
+
+  ranked.forEach((r, idx) => {
+    const isPrimary = idx === 0;
+    html += `<div class="result-card" style="${isPrimary ? `border-color:${r.badgeColor};border-width:2px` : ''}">
+      <div class="result-card-header" style="background:${isPrimary ? r.badgeBg : 'var(--surface-2)'}">
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.2rem">
+            <span style="font-size:17px;font-weight:600;letter-spacing:-.02em">${r.label}</span>
+            ${isPrimary ? `<span class="prod-badge" style="background:${r.badgeColor};color:white">Best fit</span>` : ''}
+          </div>
+          <div style="font-size:13px;color:var(--ink-mid)">${r.tagline}</div>
+        </div>
+        <div class="result-score">
+          <div class="result-score-num" style="color:${r.badgeColor}">${pct(r.key)}%</div>
+          <div class="result-score-label">match</div>
+        </div>
+      </div>`;
+    if (isPrimary) {
+      html += `<div class="result-card-body">
+        <div class="result-grid">
+          <div>
+            <div class="result-col-title">Strengths for this deal</div>
+            ${r.pros.map(p => `<div class="result-item"><span class="chk">✓</span><span>${p}</span></div>`).join('')}
+          </div>
+          <div>
+            <div class="result-col-title">Watch outs</div>
+            ${r.cons.map(c => `<div class="result-item"><span class="xmk">✗</span><span>${c}</span></div>`).join('')}
+          </div>
+        </div>`;
+      if (sigs[r.key].length) {
+        html += `<div class="signals">
+          <div class="signals-label">Signals driving this recommendation</div>
+          ${sigs[r.key].map(s => `<span class="tag" style="background:${r.badgeBg};color:${r.badgeColor}">${s}</span>`).join('')}
+        </div>`;
+      }
+      html += `<div class="next-step">
+          <div class="next-step-label">Suggested next step</div>
+          <div class="next-step-text">${r.nextStep}</div>
+        </div>
+      </div>`;
+    }
+    html += '</div>';
+  });
+
+  html += `<div class="result-actions">
+    <button class="btn btn-primary" onclick="window.print()">Print / Save as PDF</button>
+    <button class="btn" onclick="showScreen('learn')">Review products</button>
+    <button class="btn" onclick="startDiscover()">Start over</button>
+  </div>`;
+
+  document.getElementById('result-content').innerHTML = html;
+  showScreen('result');
+}
+
+// Init
+buildLearn();
+buildCompare();
+buildCompete();
+</script>
+</body>
+</html>
