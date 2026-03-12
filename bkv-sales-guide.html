@@ -728,13 +728,18 @@ body {
 
 /* ---- PRINT ---- */
 @media print {
-  .site-header, .nav-tabs, .q-nav, .result-actions, #home, #learn, #discover, #compete, #compare { display: none !important; }
-  .screen { display: block !important; padding-top: 0; }
-  #result { display: block !important; }
+  .site-header, .nav-tabs, .q-nav, .result-actions { display: none !important; }
+  .screen { display: none !important; padding-top: 0; }
+  .screen.active { display: block !important; }
   body { background: white; }
   .result-hero { background: var(--navy) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .result-card { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
   .print-header { display: block !important; }
+  .compare-table th { background-color: var(--navy) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; position: static !important; }
+  .compare-table .cat-row td { background: var(--navy) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .compare-table { font-size: 10px; border: 1px solid #ccc; }
+  .compare-table td, .compare-table th { padding: .3rem .4rem; }
+  .compare-intro, .compare-wrap + div { display: none; }
 }
 .print-header {
   display: none;
