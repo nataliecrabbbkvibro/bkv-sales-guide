@@ -893,13 +893,12 @@ const CONFIG = {
       badgeColor: '#C8102E',
       badgeBg: '#FDF0F2',
       machines: ['Steam turbines','Gas turbines','Centrifugal compressors','Reciprocating compressors','Large generators','Expanders'],
-      summary: 'Think of the VC-8000 as the high-stakes guardian for your most critical machines — turbines, compressors, large rotating equipment. It lives in a rack in the control room, watches those machines around the clock, and can automatically shut them down before a catastrophic failure happens. It meets API 670, which is a mandatory compliance standard in oil & gas and power generation.',
+      summary: 'Think of the VC-8000 as the high-stakes guardian for your most critical machines — turbines, compressors, large rotating equipment. It lives in a rack in the control room, watches those machines around the clock, and can automatically shut them down before a catastrophic failure happens. It meets API 670, which is the industry standard for machinery protection in oil & gas and power generation.',
       pros: [
         'API 670 compliant machinery protection',
         'Continuous online monitoring for turbines & compressors',
         'Rack-based trip/alert system — hardwired and permanent',
-        'Integrates with SETPOINT CMS and AVEVA PI System',
-        'Connects to VCM-3 for full plant-wide coverage'
+        'Integrates with SETPOINT CMS and AVEVA PI System'
       ],
       cons: [
         'Highest cost and complexity of all our products',
@@ -990,12 +989,10 @@ const CONFIG = {
       badgeColor: '#4338CA',
       badgeBg: '#EEF2FF',
       machines: ['Any machine (temporary)','Steam & gas turbines','Compressors','Pumps & motors','Post-turnaround verification','Startup & coast-down capture'],
-      summary: 'The VP-8000 is the portable version of the VC-8000 — same hardware, built for carrying machine to machine. Used for temporary diagnostics: verifying machine health after a turnaround or repair, troubleshooting a problem machine, or capturing startup and coast-down data. Connects to existing protection systems via BNC outputs or directly to temporary sensors. Rental available in the USA. Requires someone who can interpret the data.',
+      summary: 'The VP-8000 is the portable version of the VC-8000 — same hardware, built for carrying machine to machine. Used for temporary diagnostics: verifying machine health after a turnaround or repair, troubleshooting a problem machine, or capturing startup and coast-down data. Rental available in the USA. Requires someone who can interpret the data.',
       pros: [
         'Portable — carry to machines across the plant or site',
-        'Connects to existing protection systems via BNC outputs',
         'Advanced SETPOINT diagnostics: orbits, PV plots, Bode/polar plots',
-        'Works standalone with laptop or exports to PI historian',
         'Rental option available in the USA'
       ],
       cons: [
@@ -1125,7 +1122,6 @@ const CONFIG = {
         'ATEX, FM, CSA, CE hazardous area approvals',
         'Broadest module library in the market',
         'System 1 CMS software is mature and widely adopted',
-        'Backwards compatible — boards from 2025 work in 1995 chassis',
         'Manufactured in Minden, Nevada — US-made story'
       ],
       theirCons: [
@@ -1157,8 +1153,7 @@ const CONFIG = {
         'Up to 80 dynamic vibration + 100 static inputs in a single deployment',
         '6U double-height chassis — more channels in same rack footprint as 3500',
         'System 1 CMS integration — same software as 3500',
-        'Bently Nevada brand name and global support network',
-        'Torsional vibration and combustion monitoring on roadmap'
+        'Bently Nevada brand name and global support network'
       ],
       theirCons: [
         'Newer platform — fewer field hours than 3500, some customers still cautious',
@@ -1257,7 +1252,7 @@ const CONFIG = {
         label: 'Software & Data',
         rows: [
           {label:'SETPOINT CMS integration',         vals:['yes','yes','part','no','yes'], notes:[null,null,'Upgradeable',null,null]},
-          {label:'AVEVA PI System integration',      vals:['yes','yes','no','no','yes']},
+          {label:'AVEVA PI System integration',      vals:['yes','no','no','no','no']},
           {label:'Cloud / no server required',       vals:['no','no','yes','yes','part'], notes:[null,null,null,null,'Standalone laptop']},
           {label:'No IT involvement needed',         vals:['no','no','yes','yes','part'], notes:[null,null,null,null,'Laptop required']},
           {label:'Standalone device dashboard',      vals:['no','no','yes','no','no']},
