@@ -739,7 +739,8 @@ body {
   .compare-table .cat-row td { background: var(--navy) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .compare-table { font-size: 10px; border: 1px solid #ccc; }
   .compare-table td, .compare-table th { padding: .3rem .4rem; }
-  .compare-intro, .compare-wrap + div { display: none; }
+  .compare-intro, .compare-wrap + div, .result-actions, #compare + div { display: none !important; }
+  .compare-legend { display: none !important; }
 }
 .print-header {
   display: none;
@@ -1395,7 +1396,7 @@ function buildCompare() {
   });
 
   html += `</tbody></table>`;
-  html += `<div style="margin-top:.75rem;font-size:11.5px;color:var(--ink-light);display:flex;gap:1.5rem">
+  html += `<div class="compare-legend" style="margin-top:.75rem;font-size:11.5px;color:var(--ink-light);display:flex;gap:1.5rem">
     <span><strong style="color:#166534">✓</strong> Yes</span>
     <span><strong style="color:#92400E">◐</strong> Partial / conditional</span>
     <span><strong style="color:#9CA3AF">–</strong> No</span>
