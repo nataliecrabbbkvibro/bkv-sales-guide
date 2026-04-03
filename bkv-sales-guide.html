@@ -1183,7 +1183,7 @@ const CONFIG = {
       ],
       elevator: '"If you have critical rotating machines (turbines or compressors) that absolutely cannot fail without serious consequences, the VC-8000 is what protects them. It\'s a permanent, rack-mounted system that monitors those machines continuously and meets the API 670 standard. Think of it as the last line of defense between normal operations and a catastrophic shutdown."',
       nextStep: 'Present the VC-8000 datasheet and discuss installation scope. Recommend pairing with VCM-3 if they also have auxiliary machines to monitor.',
-      scores: {vc:2,vcm:0,go:0,bey:0,vp:0}
+      scores: {vc:2,vcm:0,go:0,bey:0,vp:0,vst:0}
     },
     vcm: {
       label: 'VCM-3',
@@ -1209,7 +1209,7 @@ const CONFIG = {
       ],
       elevator: '"The VCM-3 is what we use for the supporting machines in a plant: pumps, fans, motors. It mounts right next to the machine and continuously tracks the health of those assets so you catch problems early instead of during a breakdown. It\'s a fraction of the cost of a rack system and connects to the same software if you ever want a full plant-wide view."',
       nextStep: 'Walk through the standard vs custom template options. Ask if they have an existing PI System. Consider BKV Go if they are brand new to monitoring.',
-      scores: {vc:0,vcm:2,go:0,bey:0,vp:0}
+      scores: {vc:0,vcm:2,go:0,bey:0,vp:0,vst:0}
     },
     go: {
       label: 'BKV Go',
@@ -1236,7 +1236,7 @@ const CONFIG = {
       ],
       elevator: '"If you\'ve never done vibration monitoring before and want to get started without a big investment or learning curve, BKV Go is it. Everything is in the box: sensors, cables, the device. The dashboard runs on the device itself. Green means good, yellow means take a look, red means act now. And if you need more later, the hardware upgrades automatically."',
       nextStep: 'Confirm machine count and type (motors, pumps, fans at steady-state speed). Walk through the three kit sizes (2, 4, or 6 machines). Emphasize the upgrade path.',
-      scores: {vc:0,vcm:0,go:2,bey:0,vp:0}
+      scores: {vc:0,vcm:0,go:2,bey:0,vp:0,vst:0}
     },
     bey: {
       label: 'BKV Beyond',
@@ -1262,7 +1262,7 @@ const CONFIG = {
       ],
       elevator: '"BKV Beyond is for customers who want expert-level monitoring without having that expertise in house. We send wireless sensors, you attach them to your machines, and B&K Vibro handles everything: AI monitoring, expert review, and actionable recommendations. You only hear from us when something actually needs attention. It\'s a subscription, no big upfront purchase."',
       nextStep: 'Schedule a free Value Vision consultation to map out the ROI roadmap. Discuss machine count and site layout for sensor planning.',
-      scores: {vc:0,vcm:0,go:0,bey:2,vp:0}
+      scores: {vc:0,vcm:0,go:0,bey:2,vp:0,vst:0}
     },
     vp: {
       label: 'VP-8000',
@@ -1286,105 +1286,153 @@ const CONFIG = {
       ],
       elevator: '"The VP-8000 is our portable diagnostic unit with the same technology as our flagship VC-8000 rack system, packaged to carry around the plant. If you need to verify a machine is healthy after a major repair, capture startup data, or dig into why a specific machine is behaving oddly, this is what you bring to it. It is not a permanent installation. Use it when and where you need it."',
       nextStep: 'Clarify the use case: post-turnaround, troubleshooting, or startup verification. Ask if rental or purchase fits better. Confirm they have someone to analyze the data.',
-      scores: {vc:0,vcm:0,go:0,bey:0,vp:2}
+      scores: {vc:0,vcm:0,go:0,bey:0,vp:2,vst:0}
+    },
+    vst: {
+      label: 'VST-100',
+      tagline: 'Handheld Machine Condition Monitor',
+      badge: 'Handheld',
+      qrType: 'Handheld Monitor',
+      qrLine: 'Palm-sized push-button condition monitor for balance-of-plant machines. Traffic-light display, ISO 10816, bearing wear. No expertise needed.',
+      badgeColor: '#6B21A8',
+      badgeBg: '#FAF5FF',
+      machines: ['Pumps','Fans & blowers','Electric motors','Semi-critical machinery','Balance-of-plant equipment'],
+      summary: 'The VST-100 (VIBROSTORE 100) is a palm-sized handheld device for monitoring vibration levels and bearing wear on balance-of-plant machines. Measurements are taken at the push of a button. A traffic-light display indicates machine condition based on ISO 10816 alarm limits. Shows velocity (ISO), bearing damage units (BDU), and acceleration. Identifies common faults: imbalance, misalignment, looseness. Works with Report & Route Manager software for route-based data collection and trending. An ATEX-rated version (VST-100E) is available for hazardous areas. Pre-set B&K Vibro sensor included. Suitable for personnel of all expertise levels.',
+      pros: [
+        'Push-button simplicity, no vibration expertise required',
+        'Traffic-light display with ISO 10816 built-in alarm limits',
+        'Pocket-sized and lightweight for route-based walkarounds',
+        'Detects imbalance, misalignment, looseness and bearing wear',
+        'ATEX version (VST-100E) available for hazardous areas',
+        'Pre-set sensor included, works with Report & Route Manager software',
+        'Competitively priced'
+      ],
+      cons: [
+        'Not a permanent continuous monitoring solution',
+        'Operator must physically visit each machine',
+        'Not suited for critical machinery or API 670 applications'
+      ],
+      elevator: '"The VST-100 is our pocket-sized condition checker. Push a button, get an instant traffic-light readout on machine health based on ISO 10816. No expertise needed. It is designed for the machines you cannot afford to put a full online system on but also cannot afford to ignore. Walk your routes, collect data, trend it over time in the software."',
+      nextStep: 'Ask how many machines they need to check and how often. Confirm whether any are in hazardous areas (VST-100E). Ask if they already have Report & Route Manager or need it included.',
+      scores: {vc:0,vcm:0,go:0,bey:0,vp:0,vst:2}
     }
   },
 
   questions: [
     {
+      q: 'Are there already known problems or symptoms with this machine?',
+      script: '"Before we look at solutions, is this machine already showing symptoms or known issues, or is this more about getting ahead of future problems?"',
+      opts: [
+        {label:'Yes, there are already symptoms or known problems', sub:'Unusual vibration, noise, bearing wear, or flagged alerts', val:{vc:1,vcm:0,go:0,bey:2,vp:4,vst:2}},
+        {label:'No, this is proactive monitoring', sub:'Machine is running fine, want to catch problems early', val:{vc:1,vcm:3,go:2,bey:3,vp:0,vst:0}},
+        {label:'Post-repair or commissioning check', sub:'Verifying health after maintenance or new installation', val:{vc:0,vcm:0,go:0,bey:0,vp:3,vst:3}},
+        {label:'Not sure', sub:null, val:{vc:1,vcm:1,go:1,bey:1,vp:1,vst:1}}
+      ]
+    },
+    {
       q: 'Are they looking for permanent monitoring or a one-time diagnostic?',
       script: '"Are you looking to have a permanent system on your machines that monitors them around the clock, or is this more of a one-time thing, like checking a machine after a repair or troubleshooting a specific issue?"',
       opts: [
-        {label:'Permanent, continuous monitoring', sub:'Always-on, installed at the machine', val:{vc:2,vcm:2,go:2,bey:2,vp:0}},
-        {label:'Temporary or one-time diagnostic', sub:'Post-turnaround, startup, or troubleshooting', val:{vc:0,vcm:0,go:0,bey:0,vp:5}},
-        {label:'Both', sub:'Permanent system plus portable capability', val:{vc:1,vcm:1,go:0,bey:0,vp:3}},
-        {label:'Not sure yet', sub:null, val:{vc:1,vcm:1,go:1,bey:1,vp:1}}
+        {label:'Permanent, continuous monitoring', sub:'Always-on, installed at the machine', val:{vc:2,vcm:2,go:2,bey:2,vp:0,vst:0}},
+        {label:'Temporary or one-time diagnostic', sub:'Post-turnaround, startup, or troubleshooting', val:{vc:0,vcm:0,go:0,bey:0,vp:4,vst:3}},
+        {label:'Both', sub:'Permanent system plus portable capability', val:{vc:1,vcm:1,go:0,bey:0,vp:2,vst:2}},
+        {label:'Not sure yet', sub:null, val:{vc:1,vcm:1,go:1,bey:1,vp:1,vst:1}}
       ]
     },
     {
-      q: 'What kind of machines are they monitoring?',
-      script: '"What types of machines are you looking to put monitoring on? For example: turbines, compressors, or more everyday equipment like pumps, fans, and motors?"',
+      q: 'What type of machines are they monitoring?',
+      script: '"What types of machines are we talking about? The more specific you can be, the better I can match the right solution."',
+      multiSelect: true,
       opts: [
-        {label:'Turbines or large compressors', sub:'Steam, gas, hydro turbines, centrifugal or reciprocating compressors', val:{vc:4,vcm:0,go:0,bey:0,vp:2}},
-        {label:'Fans, pumps, motors, blowers', sub:'Auxiliary or balance of plant equipment', val:{vc:0,vcm:2,go:2,bey:2,vp:1}},
-        {label:'Mix of both', sub:'Critical machines plus supporting equipment', val:{vc:2,vcm:2,go:1,bey:1,vp:1}},
-        {label:'Not sure / other', sub:null, val:{vc:1,vcm:1,go:1,bey:1,vp:1}}
+        {label:'Gas or steam turbines', sub:'Critical rotating equipment', val:{vc:4,vcm:0,go:0,bey:0,vp:2,vst:0}},
+        {label:'Centrifugal compressors', sub:'Critical, high-speed rotating equipment', val:{vc:4,vcm:0,go:0,bey:0,vp:2,vst:0}},
+        {label:'Reciprocating compressors', sub:'Pistons, crossheads, crank mechanisms', val:{vc:3,vcm:0,go:0,bey:0,vp:2,vst:0}},
+        {label:'Pumps', sub:'Centrifugal or positive displacement', val:{vc:0,vcm:3,go:2,bey:2,vp:0,vst:1}},
+        {label:'Fans or blowers', sub:'Including cooling towers, HVAC', val:{vc:0,vcm:2,go:2,bey:2,vp:0,vst:2}},
+        {label:'Electric motors', sub:'Induction, synchronous', val:{vc:0,vcm:2,go:2,bey:2,vp:0,vst:2}},
+        {label:'Gearboxes', sub:'Speed increasers or reducers', val:{vc:0,vcm:2,go:1,bey:2,vp:1,vst:1}},
+        {label:'Mix of critical and auxiliary', sub:'Turbines or compressors plus supporting equipment', val:{vc:3,vcm:2,go:1,bey:1,vp:1,vst:0}}
       ]
     },
     {
-      q: 'Do they have a compliance requirement for API 670?',
-      script: '"Is API 670 compliance a requirement for this installation? That\'s a common standard in oil and gas and power generation. Sometimes it is mandatory, sometimes it is not a factor."',
+      q: 'Do they have a compliance or protection requirement?',
+      script: '"Is API 670 compliance a requirement? What about SIL or functional safety? These are common standards in oil and gas and power generation. Sometimes mandatory, sometimes not a factor."',
+      multiSelect: true,
+      autoLockVC: true,
+      lockTriggers: [0, 1],
       opts: [
-        {label:'Yes, API 670 is required', sub:'Common in oil & gas, petrochemical, power generation', val:{vc:4,vcm:0,go:0,bey:0,vp:0}},
-        {label:'No, not a requirement', sub:'Condition monitoring is the goal, not protection', val:{vc:0,vcm:2,go:2,bey:2,vp:1}},
-        {label:'Not sure', sub:null, val:{vc:1,vcm:1,go:1,bey:1,vp:1}}
+        {label:'API 670 required', sub:'Common in oil & gas, petrochemical, power generation', lockToVC: true, val:{vc:4,vcm:0,go:0,bey:0,vp:0,vst:0}},
+        {label:'SIL (Safety Integrity Level) required', sub:'Functional safety standard for safety-instrumented systems', lockToVC: true, val:{vc:4,vcm:0,go:0,bey:0,vp:0,vst:0}},
+        {label:'No compliance requirement', sub:'Condition monitoring is the goal, not protection', val:{vc:0,vcm:2,go:2,bey:2,vp:1,vst:1}},
+        {label:'Not sure', sub:null, val:{vc:1,vcm:1,go:1,bey:1,vp:1,vst:1}}
       ]
     },
     {
       q: 'What is their main goal: protect machines or track their health?',
       script: '"When you think about what you are trying to accomplish: protecting critical machines from catastrophic failure, or tracking machine health over time so you can plan maintenance before something breaks?"',
       opts: [
-        {label:'Protect machines from catastrophic failure', sub:'Trip systems, safety-critical, continuous protection', val:{vc:4,vcm:0,go:0,bey:0,vp:0}},
-        {label:'Track health and plan maintenance', sub:'Catch developing problems early, reduce unplanned downtime', val:{vc:1,vcm:2,go:2,bey:3,vp:1}},
-        {label:'Deep diagnostic analysis', sub:'Root cause investigation, startup data, post-repair verification', val:{vc:0,vcm:0,go:0,bey:0,vp:4}},
-        {label:'Both protection and health monitoring', sub:'Full plant-wide view', val:{vc:3,vcm:2,go:1,bey:0,vp:0}}
+        {label:'Protect machines from catastrophic failure', sub:'Trip systems, safety-critical, continuous protection', val:{vc:4,vcm:0,go:0,bey:0,vp:0,vst:0}},
+        {label:'Track health and plan maintenance', sub:'Catch developing problems early, reduce unplanned downtime', val:{vc:1,vcm:2,go:2,bey:3,vp:1,vst:0}},
+        {label:'Deep diagnostic analysis', sub:'Root cause investigation, startup data, post-repair verification', val:{vc:0,vcm:0,go:0,bey:0,vp:4,vst:3}},
+        {label:'Both protection and health monitoring', sub:'Full plant-wide view', val:{vc:3,vcm:2,go:1,bey:0,vp:0,vst:0}}
       ]
     },
     {
       q: 'Do they have vibration analysis expertise on their team?',
-      script: '"Do you have anyone on your team who works with vibration data, someone who can look at trends and spectra and make decisions based on what they see? Or is this something you\'d want handled for you?"',
+      script: '"Do you have anyone on your team who works with vibration data, someone who can look at trends and make decisions based on what they see? Or is this something you would want handled for you?"',
       opts: [
-        {label:'Yes, skilled analyst or engineer on staff', sub:'Can interpret data and act independently', val:{vc:2,vcm:2,go:0,bey:0,vp:3}},
-        {label:'Some knowledge, not a dedicated analyst', sub:'Could use guidance and support', val:{vc:0,vcm:1,go:2,bey:2,vp:1}},
-        {label:'No expertise, wants it handled for them', sub:'Wants a fully managed solution', val:{vc:0,vcm:0,go:2,bey:4,vp:0}}
+        {label:'Yes, skilled analyst or engineer on staff', sub:'Can interpret data and act independently', val:{vc:2,vcm:2,go:0,bey:0,vp:3,vst:2}},
+        {label:'Some knowledge, not a dedicated analyst', sub:'Could use guidance and support', val:{vc:0,vcm:1,go:2,bey:2,vp:1,vst:1}},
+        {label:'No expertise, wants it handled for them', sub:'Wants a fully managed solution', val:{vc:0,vcm:0,go:2,bey:4,vp:0,vst:0}}
       ]
     },
     {
       q: 'How do they prefer to purchase?',
       script: '"On the commercial side, are you typically working with a capital budget where you buy equipment outright, or is an ongoing subscription or service-based model something that works in your environment?"',
       opts: [
-        {label:'Capital purchase (CapEx)', sub:'Buy hardware and software upfront', val:{vc:2,vcm:2,go:2,bey:0,vp:2}},
-        {label:'Rental (short-term use only)', sub:'VP-8000 available for rental in the USA', val:{vc:0,vcm:0,go:0,bey:0,vp:4}},
-        {label:'Subscription / service model (OpEx)', sub:'Monthly or annual fee, no large upfront cost', val:{vc:0,vcm:0,go:0,bey:4,vp:0}},
-        {label:'Flexible or not yet decided', sub:null, val:{vc:1,vcm:1,go:1,bey:1,vp:1}}
+        {label:'Capital purchase (CapEx)', sub:'Buy hardware and software upfront', val:{vc:2,vcm:2,go:2,bey:0,vp:2,vst:2}},
+        {label:'Rental (short-term use only)', sub:'VP-8000 available for rental in the USA', val:{vc:0,vcm:0,go:0,bey:0,vp:4,vst:0}},
+        {label:'Subscription / service model (OpEx)', sub:'Monthly or annual fee, no large upfront cost', val:{vc:0,vcm:0,go:0,bey:4,vp:0,vst:0}},
+        {label:'Flexible or not yet decided', sub:null, val:{vc:1,vcm:1,go:1,bey:1,vp:1,vst:1}}
       ]
     },
     {
       q: 'What is their installation preference?',
-      script: '"How are you thinking about the physical installation? Some customers want a rack-mounted system in the control room, others want small devices mounted right at the machine, and some prefer wireless sensors with no cabling at all."',
+      script: '"How are you thinking about the physical installation? Rack-mounted in a control room, small devices at the machine, wireless sensors with no cabling, or something portable?"',
       opts: [
-        {label:'Rack-mounted in the control room', sub:'Permanent hardwired installation', val:{vc:4,vcm:0,go:0,bey:0,vp:0}},
-        {label:'Small device mounted near the machine', sub:'Field unit, wired sensors', val:{vc:0,vcm:3,go:2,bey:0,vp:0}},
-        {label:'Wireless sensors, no cabling', sub:'Plug-and-play installation', val:{vc:0,vcm:0,go:0,bey:4,vp:0}},
-        {label:'Portable, connect temporarily as needed', sub:'Move between machines or attach to existing systems', val:{vc:0,vcm:0,go:0,bey:0,vp:4}},
-        {label:'No preference', sub:null, val:{vc:1,vcm:1,go:1,bey:1,vp:1}}
+        {label:'Rack-mounted in the control room', sub:'Permanent hardwired installation', val:{vc:4,vcm:0,go:0,bey:0,vp:0,vst:0}},
+        {label:'Small device mounted near the machine', sub:'Field unit, wired sensors', val:{vc:0,vcm:3,go:2,bey:0,vp:0,vst:0}},
+        {label:'Wireless sensors, no cabling', sub:'Plug-and-play installation', val:{vc:0,vcm:0,go:0,bey:4,vp:0,vst:0}},
+        {label:'Portable, connect temporarily as needed', sub:'Move between machines or attach to existing systems', val:{vc:0,vcm:0,go:0,bey:0,vp:3,vst:3}},
+        {label:'No preference', sub:null, val:{vc:1,vcm:1,go:1,bey:1,vp:1,vst:1}}
       ]
     },
     {
       q: 'Is the installation in a hazardous area?',
-      script: '"Is the area where these machines are located classified as a hazardous area, for example where there is a risk of flammable gas or explosive atmosphere? That affects which products are approved for use there."',
+      script: '"Is the area where these machines are located classified as a hazardous area, for example where there is a risk of flammable gas or explosive atmosphere?"',
       opts: [
-        {label:'Yes, hazardous area (ATEX or NEC)', sub:'Flammable gas, explosive atmosphere present', val:{vc:1,vcm:3,go:0,bey:0,vp:0}},
-        {label:'No, standard industrial environment', sub:null, val:{vc:1,vcm:1,go:2,bey:2,vp:2}},
-        {label:'Unknown', sub:null, val:{vc:1,vcm:1,go:1,bey:1,vp:1}}
+        {label:'Yes, hazardous area (ATEX or NEC)', sub:'Flammable gas, explosive atmosphere present', val:{vc:1,vcm:3,go:0,bey:0,vp:0,vst:0}},
+        {label:'No, standard industrial environment', sub:null, val:{vc:1,vcm:1,go:2,bey:2,vp:2,vst:2}},
+        {label:'Unknown', sub:null, val:{vc:1,vcm:1,go:1,bey:1,vp:1,vst:1}}
       ]
     },
     {
       q: 'What is their IT and data preference?',
-      script: '"On the software side, do you already have an AVEVA PI System or similar infrastructure you\'d want this to connect to? Or would you prefer something that just works without any IT involvement?"',
+      script: '"On the software side, do you already have an AVEVA PI System or similar infrastructure you would want this to connect to? Or would you prefer something that just works without any IT involvement?"',
       opts: [
-        {label:'On-premises, PI System or local data', sub:'Existing infrastructure, no cloud required', val:{vc:3,vcm:2,go:1,bey:0,vp:2}},
-        {label:'Cloud or SaaS, no server needed', sub:'Hosted platform, minimal IT involvement', val:{vc:0,vcm:0,go:0,bey:4,vp:0}},
-        {label:'Standalone, laptop or device dashboard only', sub:'No server or cloud needed', val:{vc:0,vcm:0,go:3,bey:0,vp:2}},
-        {label:'Flexible / no strong preference', sub:null, val:{vc:1,vcm:1,go:1,bey:2,vp:1}}
+        {label:'On-premises, PI System or local data', sub:'Existing infrastructure, no cloud required', val:{vc:3,vcm:2,go:1,bey:0,vp:2,vst:0}},
+        {label:'Cloud or SaaS, no server needed', sub:'Hosted platform, minimal IT involvement', val:{vc:0,vcm:0,go:0,bey:4,vp:0,vst:0}},
+        {label:'Standalone, laptop or device dashboard only', sub:'No server or cloud needed', val:{vc:0,vcm:0,go:3,bey:0,vp:2,vst:2}},
+        {label:'Flexible / no strong preference', sub:null, val:{vc:1,vcm:1,go:1,bey:2,vp:1,vst:1}}
       ]
     }
   ],
 
   sigLabels: [
+    ['Existing symptoms/problems','Proactive monitoring','Post-repair check','Unsure'],
     ['Permanent monitoring','Temporary/portable','Permanent + portable','Undecided'],
-    ['Critical machinery (turbines/compressors)','Auxiliary/BoP machinery','Mixed plant','Undecided'],
-    ['API 670 required','No compliance requirement','Unsure'],
+    ['Gas/steam turbines','Centrifugal compressors','Reciprocating compressors','Pumps','Fans/blowers','Electric motors','Gearboxes','Mixed plant'],
+    ['API 670 required','SIL required','No compliance requirement','Unsure'],
     ['Protection priority','Condition monitoring priority','Deep diagnostics priority','Protection + monitoring'],
     ['In-house analyst expertise','Limited expertise','No vibration expertise'],
     ['CapEx purchase','Rental model','OpEx/subscription','Flexible'],
@@ -1525,69 +1573,69 @@ const CONFIG = {
       {
         label: 'Machine Types',
         rows: [
-          {label:'Steam turbines',                  vals:['yes','no','no','no','yes']},
-          {label:'Gas turbines',                     vals:['yes','no','no','no','yes']},
-          {label:'Centrifugal compressors',          vals:['yes','no','no','no','yes']},
-          {label:'Reciprocating compressors',        vals:['yes','no','no','no','yes']},
-          {label:'Large generators / expanders',     vals:['yes','no','no','no','yes']},
-          {label:'Centrifugal pumps',                vals:['no','yes','yes','yes','yes']},
-          {label:'Fans & blowers',                   vals:['no','yes','yes','yes','yes']},
-          {label:'Electric motors',                  vals:['no','yes','yes','yes','yes']},
-          {label:'Gearboxes',                        vals:['no','yes','part','yes','yes'], notes:[null,null,'Fixed speed only',null,null]},
-          {label:'Cooling towers',                   vals:['no','yes','no','yes','no']},
+          {label:'Steam turbines',                  vals:['yes','no','no','no','yes','yes']},
+          {label:'Gas turbines',                     vals:['yes','no','no','no','yes','yes']},
+          {label:'Centrifugal compressors',          vals:['yes','no','no','no','yes','yes']},
+          {label:'Reciprocating compressors',        vals:['yes','no','no','no','yes','yes']},
+          {label:'Large generators / expanders',     vals:['yes','no','no','no','yes','no']},
+          {label:'Centrifugal pumps',                vals:['no','yes','yes','yes','yes','yes']},
+          {label:'Fans & blowers',                   vals:['no','yes','yes','yes','yes','yes']},
+          {label:'Electric motors',                  vals:['no','yes','yes','yes','yes','yes']},
+          {label:'Gearboxes',                        vals:['no','yes','part','yes','yes','yes'], notes:[null,null,'Fixed speed only',null,null,null]},
+          {label:'Cooling towers',                   vals:['no','yes','no','yes','no','no']},
         ]
       },
       {
         label: 'Protection & Monitoring',
         rows: [
-          {label:'API 670 compliant protection',     vals:['yes','no','no','no','yes']},
-          {label:'Automatic trip / machine shutdown',vals:['yes','no','no','no','no']},
-          {label:'Continuous online monitoring',     vals:['yes','yes','yes','yes','no']},
-          {label:'Condition monitoring & trending',  vals:['part','yes','part','yes','yes'], notes:['Requires SETPOINT',null,'Basic dashboard only',null,null]},
-          {label:'AI-based fault detection',         vals:['no','no','no','yes','no']},
-          {label:'Expert analyst review included',   vals:['no','no','no','yes','no']},
-          {label:'Variable speed machines',          vals:['yes','yes','no','yes','yes']},
+          {label:'API 670 compliant protection',     vals:['yes','no','no','no','yes','no']},
+          {label:'Automatic trip / machine shutdown',vals:['yes','no','no','no','no','no']},
+          {label:'Continuous online monitoring',     vals:['yes','yes','yes','yes','no','no']},
+          {label:'Condition monitoring & trending',  vals:['part','yes','part','yes','yes','no'], notes:['Requires SETPOINT',null,'Basic dashboard only',null,null,null]},
+          {label:'AI-based fault detection',         vals:['no','no','no','yes','no','no']},
+          {label:'Expert analyst review included',   vals:['no','no','no','yes','no','no']},
+          {label:'Variable speed machines',          vals:['yes','yes','no','yes','yes','no']},
         ]
       },
       {
         label: 'Installation & Hardware',
         rows: [
-          {label:'Wireless sensors',                 vals:['no','no','no','yes','no']},
-          {label:'Field-mounted (near machine)',      vals:['no','yes','yes','no','no']},
-          {label:'Rack-mounted (control room)',       vals:['yes','no','no','no','no']},
-          {label:'Portable (carry machine to machine)',vals:['no','no','no','no','yes']},
-          {label:'Hazardous area rated (ATEX/NEC)',   vals:['yes','part','no','no','no'], notes:[null,'VCM-3 Ex only: ATEX/IECEx Zone 2, Class I Div 2',null,'Not confirmed',null]},
-          {label:'Complete out-of-box kit',           vals:['no','no','yes','no','no']},
-          {label:'Max 6 machines (hardware limit)',   vals:['no','no','yes','no','no']},
+          {label:'Wireless sensors',                 vals:['no','no','no','yes','no','no']},
+          {label:'Field-mounted (near machine)',      vals:['no','yes','yes','no','no','no']},
+          {label:'Rack-mounted (control room)',       vals:['yes','no','no','no','no','no']},
+          {label:'Portable (carry machine to machine)',vals:['no','no','no','no','yes','no']},
+          {label:'Hazardous area rated (ATEX/NEC)',   vals:['yes','part','no','no','no','no'], notes:[null,'VCM-3 Ex only: ATEX/IECEx Zone 2, Class I Div 2',null,'Not confirmed',null]},
+          {label:'Complete out-of-box kit',           vals:['no','no','yes','no','no','no']},
+          {label:'Max 6 machines (hardware limit)',   vals:['no','no','yes','no','no','no']},
         ]
       },
       {
         label: 'Software & Data',
         rows: [
-          {label:'SETPOINT CMS integration',         vals:['yes','yes','part','no','yes'], notes:[null,null,'Upgradeable',null,null]},
-          {label:'AVEVA PI System integration',      vals:['yes','yes','no','no','no']},
-          {label:'Cloud / no server required',       vals:['no','no','yes','yes','part'], notes:[null,null,null,null,'Standalone laptop']},
-          {label:'No IT involvement needed',         vals:['no','no','yes','yes','part'], notes:[null,null,null,null,'Laptop required']},
-          {label:'Standalone device dashboard',      vals:['no','no','yes','no','no']},
+          {label:'SETPOINT CMS integration',         vals:['yes','yes','part','no','yes','no'], notes:[null,null,'Upgradeable',null,null,null]},
+          {label:'AVEVA PI System integration',      vals:['yes','yes','no','no','no','no']},
+          {label:'Cloud / no server required',       vals:['no','no','yes','yes','part','no'], notes:[null,null,null,null,'Standalone laptop',null]},
+          {label:'No IT involvement needed',         vals:['no','no','yes','yes','part','no'], notes:[null,null,null,null,'Laptop required',null]},
+          {label:'Standalone device dashboard',      vals:['no','no','yes','no','no','no']},
         ]
       },
       {
         label: 'Expertise & Support',
         rows: [
-          {label:'No vibration expertise required',  vals:['no','part','yes','yes','no'], notes:[null,'Standard template only',null,null,null]},
-          {label:'Managed by B&K Vibro analysts',    vals:['no','no','no','yes','no']},
-          {label:'12 months remote support included',vals:['no','no','yes','no','no']},
-          {label:'In-house expertise recommended',   vals:['yes','part','no','no','yes'], notes:[null,'For custom templates',null,null,null]},
+          {label:'No vibration expertise required',  vals:['no','part','yes','yes','no','no'], notes:[null,'Standard template only',null,null,null,null]},
+          {label:'Managed by B&K Vibro analysts',    vals:['no','no','no','yes','no','no']},
+          {label:'12 months remote support included',vals:['no','no','yes','no','no','no']},
+          {label:'In-house expertise recommended',   vals:['yes','part','no','no','yes','no'], notes:[null,'For custom templates',null,null,null,null]},
         ]
       },
       {
         label: 'Commercial',
         rows: [
-          {label:'CapEx / purchase',                 vals:['yes','yes','yes','no','yes']},
-          {label:'Subscription / OpEx model',        vals:['no','no','no','yes','no']},
-          {label:'Rental available (USA)',            vals:['no','no','no','no','yes']},
-          {label:'Upgrade path to full platform',    vals:['no','yes','yes','part','no'], notes:[null,null,'Same hardware, no swap',null,null]},
-          {label:'Entry-level price point',          vals:['no','part','yes','part','no']},
+          {label:'CapEx / purchase',                 vals:['yes','yes','yes','no','yes','no']},
+          {label:'Subscription / OpEx model',        vals:['no','no','no','yes','no','no']},
+          {label:'Rental available (USA)',            vals:['no','no','no','no','yes','no']},
+          {label:'Upgrade path to full platform',    vals:['no','yes','yes','part','no','no'], notes:[null,null,'Same hardware, no swap',null,null]},
+          {label:'Entry-level price point',          vals:['no','part','yes','part','no','no']},
         ]
       }
     ]
@@ -1739,7 +1787,7 @@ function renderCompareTable() {
   const allProds = allKeys.map(k => CONFIG.products[k]);
   const iconMap = { yes:'✓', no:'–', part:'◐' };
   const classMap = { yes:'ct-yes', no:'ct-no', part:'ct-part' };
-  const colColors = { vc:'#C8102E', vcm:'#1A7A4A', go:'#3B6D11', bey:'#854F0B', vp:'#4338CA' };
+  const colColors = { vc:'#C8102E', vcm:'#1A7A4A', go:'#3B6D11', bey:'#854F0B', vp:'#4338CA', vst:'#6B21A8' };
 
   let html = `<table class="compare-table">
     <thead><tr>
@@ -1873,14 +1921,35 @@ function renderQ() {
   }
   const optsEl = document.getElementById('q-options');
   optsEl.innerHTML = '';
+  const isMulti = !!q.multiSelect;
+  // Ensure answer is correct type for multi-select
+  if (isMulti && !Array.isArray(answers[curQ])) answers[curQ] = null;
   q.opts.forEach((o, i) => {
     const btn = document.createElement('button');
-    btn.className = 'opt' + (answers[curQ] === i ? ' selected' : '');
-    btn.innerHTML = `<div class="opt-radio"></div><div class="opt-body"><div class="opt-label">${o.label}</div>${o.sub ? `<div class="opt-sub">${o.sub}</div>` : ''}</div>`;
+    const isSelected = isMulti
+      ? (Array.isArray(answers[curQ]) && answers[curQ].includes(i))
+      : (answers[curQ] === i);
+    btn.className = 'opt' + (isSelected ? ' selected' : '');
+    const indicator = isMulti
+      ? `<div class="opt-radio" style="border-radius:3px">${isSelected ? '✓' : ''}</div>`
+      : `<div class="opt-radio"></div>`;
+    btn.innerHTML = `${indicator}<div class="opt-body"><div class="opt-label">${o.label}</div>${o.sub ? `<div class="opt-sub">${o.sub}</div>` : ''}</div>`;
     btn.onclick = () => {
-      answers[curQ] = i;
-      document.querySelectorAll('.opt').forEach((el, idx) => el.classList.toggle('selected', idx === i));
-      document.getElementById('btn-next').disabled = false;
+      if (isMulti) {
+        const arr = Array.isArray(answers[curQ]) ? [...answers[curQ]] : [];
+        const idx = arr.indexOf(i);
+        if (idx === -1) arr.push(i); else arr.splice(idx, 1);
+        answers[curQ] = arr.length > 0 ? arr : null;
+        document.querySelectorAll('.opt').forEach((el, j) => {
+          el.classList.toggle('selected', Array.isArray(answers[curQ]) && answers[curQ].includes(j));
+          const radio = el.querySelector('.opt-radio');
+          if (radio) radio.textContent = el.classList.contains('selected') ? '✓' : '';
+        });
+      } else {
+        answers[curQ] = i;
+        document.querySelectorAll('.opt').forEach((el, idx) => el.classList.toggle('selected', idx === i));
+      }
+      document.getElementById('btn-next').disabled = answers[curQ] === null;
     };
     optsEl.appendChild(btn);
   });
@@ -1892,8 +1961,29 @@ function renderQ() {
 }
 
 function goNext() {
+  // Check for API 670 / SIL auto-lock → force VC-8000 result immediately
+  const q = CONFIG.questions[curQ];
+  if (q.autoLockVC && Array.isArray(answers[curQ])) {
+    const hasLockTrigger = answers[curQ].some(i => q.opts[i] && q.opts[i].lockToVC);
+    if (hasLockTrigger) { showVCLockResult(); return; }
+  }
   if (curQ < CONFIG.questions.length - 1) { curQ++; renderQ(); }
   else showResult();
+}
+
+let vcLockActive = false;
+
+function showVCLockResult() {
+  resultRanked = Object.keys(CONFIG.products).map(k => ({...CONFIG.products[k], key: k, score: k === 'vc' ? 100 : 0})).sort((a,b) => b.score - a.score);
+  resultRanked._pct = k => k === 'vc' ? 100 : 0;
+  resultSigs = {vc:['API 670 / SIL requirement'], vcm:[], go:[], bey:[], vp:[], vst:[]};
+  resultMode = 'rep';
+  vcLockActive = true;
+  document.getElementById('print-date').textContent = new Date().toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'});
+  renderResult();
+  showScreen('result');
+  const hero = document.querySelector('#result .result-hero p');
+  if (hero) hero.textContent = 'API 670 or SIL requirement detected — VC-8000 is the only compliant solution.';
 }
 function goBack() { if (curQ > 0) { curQ--; renderQ(); } }
 
@@ -1902,14 +1992,23 @@ let resultSigs = {};
 let resultMode = 'rep';
 
 function showResult() {
-  const scores = {vc:0, vcm:0, go:0, bey:0, vp:0};
-  const sigs = {vc:[], vcm:[], go:[], bey:[], vp:[]};
+  const scores = {vc:0, vcm:0, go:0, bey:0, vp:0, vst:0};
+  const sigs = {vc:[], vcm:[], go:[], bey:[], vp:[], vst:[]};
   answers.forEach((a, qi) => {
     if (a === null) return;
-    const v = CONFIG.questions[qi].opts[a].val;
-    Object.keys(scores).forEach(k => {
-      scores[k] += v[k];
-      if (v[k] > 0) sigs[k].push(CONFIG.sigLabels[qi][a]);
+    const q = CONFIG.questions[qi];
+    const selections = Array.isArray(a) ? a : [a];
+    selections.forEach(sel => {
+      if (!q.opts[sel]) return;
+      const v = q.opts[sel].val;
+      Object.keys(scores).forEach(k => {
+        if (v && v[k] !== undefined) {
+          scores[k] += v[k];
+          if (v[k] > 0 && CONFIG.sigLabels[qi] && CONFIG.sigLabels[qi][sel]) {
+            sigs[k].push(CONFIG.sigLabels[qi][sel]);
+          }
+        }
+      });
     });
   });
   const total = Object.values(scores).reduce((a,b) => a+b, 0) || 1;
@@ -1922,6 +2021,7 @@ function showResult() {
 
   document.getElementById('print-date').textContent = new Date().toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'});
   resultMode = 'rep';
+  vcLockActive = false;
   renderResult();
   showScreen('result');
 }
@@ -1948,19 +2048,20 @@ function renderResult() {
     <button class="mode-btn" onclick="setResultMode('customer')">Customer Summary</button>
   </div>`;
 
-  ranked.forEach((r, idx) => {
+  const displayRanked = vcLockActive ? ranked.filter(r => r.key === 'vc') : ranked;
+  displayRanked.forEach((r, idx) => {
     const isPrimary = idx === 0;
-    html += `<div class="result-card" style="${isPrimary ? `border-color:${r.badgeColor};border-width:2px` : ''}">
-      <div class="result-card-header" style="background:${isPrimary ? r.badgeBg : 'var(--surface-2)'}">
+    html += `<div class="result-card" style="${isPrimary ? 'border-color:#1A7A4A;border-width:2px' : ''}">
+      <div class="result-card-header" style="background:${isPrimary ? '#F0FDF4' : 'var(--surface-2)'}">
         <div style="flex:1">
           <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.2rem">
             <span style="font-family:var(--font-display);font-size:17px;font-weight:600;letter-spacing:-.02em">${r.label}</span>
-            ${isPrimary ? `<span class="prod-badge" style="background:${r.badgeColor};color:white">Best fit</span>` : ''}
+            ${isPrimary ? '<span class="prod-badge" style="background:#1A7A4A;color:white">Best fit</span>' : ''}
           </div>
           <div style="font-size:13px;color:var(--ink-mid)">${r.tagline}</div>
         </div>
         <div class="result-score">
-          <div class="result-score-num" style="color:${r.badgeColor}">${pct(r.key)}%</div>
+          <div class="result-score-num" style="color:${isPrimary ? '#1A7A4A' : 'var(--ink)'}">${pct(r.key)}%</div>
           <div class="result-score-label">match</div>
         </div>
       </div>`;
@@ -2060,7 +2161,7 @@ function renderCustomerResult(ranked, sigs, pct) {
             <div style="font-size:13px;color:var(--ink-mid);margin-top:.15rem">${r.tagline}</div>
           </div>
           <div class="result-score">
-            <div class="result-score-num" style="font-size:20px;color:${r.badgeColor}">${pct(r.key)}%</div>
+            <div class="result-score-num" style="font-size:20px;color:var(--ink)">${pct(r.key)}%</div>
             <div class="result-score-label">fit score</div>
           </div>
         </div>
