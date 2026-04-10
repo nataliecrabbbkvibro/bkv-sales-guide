@@ -693,6 +693,22 @@ body {
   border-radius: 99px;
   transition: width .4s cubic-bezier(.4,0,.2,1);
 }
+.prog-dot {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  border: 2px solid var(--border-mid);
+  background: var(--surface);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-light);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s, border-color .15s, color .15s;
+  flex-shrink: 0;
+}
+.prog-dot.answered { background: var(--navy-light); border-color: var(--navy); color: var(--navy); }
+.prog-dot.current { background: var(--navy); border-color: var(--navy); color: white; }
+.prog-dot:hover:not(.current) { border-color: var(--navy); color: var(--navy); }
 .q-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -1114,10 +1130,11 @@ window.addEventListener('DOMContentLoaded', function() {
   <div id="discover" class="screen">
     <div class="progress-wrap">
       <div class="progress-meta">
-        <span id="q-meta">Question 1 of 9</span>
+        <span id="q-meta">Question 1 of 10</span>
         <span id="q-pct">0%</span>
       </div>
       <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+      <div id="prog-dots" style="display:flex;gap:6px;margin-top:.6rem;flex-wrap:wrap"></div>
     </div>
     <div class="q-card">
       <div class="q-card-head">
@@ -1912,6 +1929,19 @@ function renderQ() {
   document.getElementById('q-meta').textContent = `Question ${curQ + 1} of ${total}`;
   document.getElementById('q-pct').textContent = pct + '%';
   document.getElementById('prog-fill').style.width = pct + '%';
+  // Render clickable dots
+  const dotsEl = document.getElementById('prog-dots');
+  if (dotsEl) {
+    dotsEl.innerHTML = '';
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'prog-dot' + (i === curQ ? ' current' : (answers[i] !== null ? ' answered' : ''));
+      dot.textContent = i + 1;
+      dot.title = CONFIG.questions[i].q;
+      dot.onclick = () => { curQ = i; renderQ(); };
+      dotsEl.appendChild(dot);
+    }
+  }
   document.getElementById('q-text').textContent = q.q;
   if (q.script) {
     document.getElementById('q-script-wrap').style.display = 'block';
@@ -1983,7 +2013,7 @@ function showVCLockResult() {
   renderResult();
   showScreen('result');
   const hero = document.querySelector('#result .result-hero p');
-  if (hero) hero.textContent = 'API 670 or SIL requirement detected — VC-8000 is the only compliant solution.';
+  if (hero) hero.textContent = 'API 670 or SIL requirement detected. These are mandatory protection standards — no condition monitoring product qualifies. VC-8000 is the only compliant solution in the B&K Vibro portfolio.';
 }
 function goBack() { if (curQ > 0) { curQ--; renderQ(); } }
 
@@ -1998,14 +2028,17 @@ function showResult() {
     if (a === null) return;
     const q = CONFIG.questions[qi];
     const selections = Array.isArray(a) ? a : [a];
+    const divisor = q.multiSelect ? selections.length : 1;
     selections.forEach(sel => {
       if (!q.opts[sel]) return;
       const v = q.opts[sel].val;
       Object.keys(scores).forEach(k => {
         if (v && v[k] !== undefined) {
-          scores[k] += v[k];
+          scores[k] += v[k] / divisor;
           if (v[k] > 0 && CONFIG.sigLabels[qi] && CONFIG.sigLabels[qi][sel]) {
-            sigs[k].push(CONFIG.sigLabels[qi][sel]);
+            if (!sigs[k].includes(CONFIG.sigLabels[qi][sel])) {
+              sigs[k].push(CONFIG.sigLabels[qi][sel]);
+            }
           }
         }
       });
@@ -2078,9 +2111,12 @@ function renderResult() {
           </div>
         </div>`;
       if (sigs[r.key].length) {
+        const allSigs = sigs[r.key];
+        const visibleSigs = allSigs.slice(0, 3);
+        const hiddenCount = allSigs.length - visibleSigs.length;
         html += `<div class="signals">
           <div class="signals-label">Signals driving this recommendation</div>
-          ${sigs[r.key].map(s => `<span class="tag" style="background:${r.badgeBg};color:${r.badgeColor}">${s}</span>`).join('')}
+          ${visibleSigs.map(s => `<span class="tag" style="background:${r.badgeBg};color:${r.badgeColor}">${s}</span>`).join('')}${hiddenCount > 0 ? `<span class="tag" style="background:var(--surface-3);color:var(--ink-mid)">+${hiddenCount} more</span>` : ''}
         </div>`;
       }
       html += `<div class="next-step">
